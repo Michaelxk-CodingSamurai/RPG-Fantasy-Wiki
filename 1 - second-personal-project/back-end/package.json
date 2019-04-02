@@ -1,0 +1,20 @@
+{
+  "name": "fantasy-backend",
+  "version": "1.0.0",
+  "description": "second-personal-project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Michael K",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "mongo-morgan": "^2.0.3",
+    "mongodb": "^3.2.2",
+    "mongoose": "^5.4.20",
+    "morgan": "^1.9.1"
+  }
+}

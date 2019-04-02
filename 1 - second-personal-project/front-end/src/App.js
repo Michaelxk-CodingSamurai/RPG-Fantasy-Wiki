@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
+// import Navbar from './navbar'
 import Display from './components/Display'
+import Creator from './components/Creator';
+
 
 class App extends Component {
 
   state = {
+
     elements: []
+
+
   }
 
   componentDidMount() {
@@ -23,18 +30,32 @@ class App extends Component {
       })
   }
 
+  addToCategory = (a, b) => {
+
+    let newStats = [...this.state.elements, { a, b }]
+
+    this.setState({
+
+      subCategory: newStats
+
+    })
+
+  }
+
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <Display elements={this.state.elements}/>
-          </div>
-        </div>
-      </div>
+      <div className="App">
+        {/* <Navbar /> */}
+        <Switch>
+          <Route exact path='/' render={() =>  <Display elements={this.state.elements} />} />
+          <Route path='/creator' render={() => <Creator creatorInput={this.addToCategory} />} />
+        </Switch>
+      </div>  
     );
   }
 }
 
 export default App;
+
+

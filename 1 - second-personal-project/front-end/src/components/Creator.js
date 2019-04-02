@@ -7,7 +7,7 @@ class Creator extends Component {
         category: '',
         img: '',
         subcategory: [],
-        categories: ['Characters','Locations','Abilities','Items']
+    
 
 
 
@@ -36,7 +36,8 @@ class Creator extends Component {
             <div className="form-group">
 
                 <form onSubmit={(e) => this.add(e)}>
-                    <select>
+                    <select value={this.state.category}
+                    onChange={(e)=> this.setState({category: e.target.value})}>                    
                         <option>select</option>
                         <option>character</option>
                         <option>location</option>

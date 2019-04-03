@@ -19,7 +19,7 @@ const elementSchema = new Schema({
     },
     subcategory: {
         type: Array, 
-        required: true,
+        required: false,
         trim: true
     }
 })

@@ -65,8 +65,8 @@ module.exports.elements = [
             {a: "terrain", b: "Ash, Black Mounatins, Battlefield"},
             {a: "difficulty", b: "end game"},
             {a: "genre", b: "science-fantasy"},
-            {a: "universe", b:"Warhammer 40k"},
             {a: "events", b:"Abaddon's Thirteenth Black Crusade"},
+            {a: "universe", b:"Warhammer 40k"},
         ]
     },
     {
@@ -78,15 +78,23 @@ module.exports.elements = [
             {a: "owner", b: "The Lich King"},
             {a: "attributes", b:"Sharp, Frost Attack, Cursed Blade"},
             {a: "location", b: "Northrend"},
-            {a: "power", b:"pretty high"}, 
-            {a: "requirement", b:"sacrifice all you men, intense will,demonic strength"},           
-            {a: "cost", b: "The Wielder's Soul"},
+            {a: "power", b:"pretty high"},           
+            {a: "cost", b: "The Wielder's Soul, Sacrifice all your men"},
+            {a: "universe", b:"Warcraft"}, 
         ]
     },
     {
         name:"Hokuto Shinken",
         category: "ability",
-        image:"",
+        image:"http://wallpapershdnow.com/images/anime/action/hokuto-no-ken/hokuto-no-ken-wallpaper-3.jpg",
+        subcategory: [
+            {a: "type", b:"Martial Arts Physical"},
+            {a: "wielder", b:"Kenshiro"},
+            {a: "power", b: "pressure points make body parts explode"},
+            {a: "power level", b:"OP"},
+            {a: "universe", b:"Fist of the North Star"},
+            {a: "origins", b:"Ancient China: Three Kingdoms Era"}
+        ]
     }
 
 

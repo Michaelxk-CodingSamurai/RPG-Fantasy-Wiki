@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 // import Navbar from './navbar'
 import Display from './components/Display'
 import Creator from './components/Creator';
+import Character from './components/Character'
 
 
 class App extends Component {
@@ -50,6 +51,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={() =>  <Display elements={this.state.elements} />} />
           <Route path='/creator' render={() => <Creator creatorInput={this.addToCategory} />} />
+          <Route path='/characters' render={() => <Character elements={this.state.elements}/>} />
         </Switch>
       </div>  
     );

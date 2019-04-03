@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import Navbar from './components/navbar'
+import Navbar from './components/Navbar'
 import Display from './components/Display'
 import Creator from './components/Creator';
 import Character from './components/categories/Character'

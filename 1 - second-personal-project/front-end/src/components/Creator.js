@@ -24,7 +24,7 @@ class Creator extends Component {
 
         this.setState({
             subcategory: newCategory,
-            a: '',
+            // a: '',
             b: ''
         })
     }

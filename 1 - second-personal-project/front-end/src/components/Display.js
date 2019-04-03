@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class Display extends Component {
     state = {}
@@ -17,19 +18,19 @@ class Display extends Component {
                     
                     <tbody >
                         {this.props.elements.map((element, index) =>
-                            <tr key={element.id}>
+                            <tr key={element._id}>
                                 <th>{index + 1}</th>
                                 <td>
-                                    <h4>{element.name}</h4>
-                                    <p>{element.category}</p>
+                                    <Link button to={`/profile/${element._id}`}><h3>{element.name}</h3></Link>
+                                    <p>{element.category} </p>
                                     <img className="img-thumbnail fluid" src={element.image} alt="" />
                                 </td>
                                 {element.subcategory.map((object) => {
                                     return (
-                                        <div>
-                                            <td>{object.a}</td>
+                                        <tr key ={object.a}>
+                                            <td>{object.a} :</td>
                                             <td>{object.b}</td>
-                                        </div>
+                                        </tr>
                                     )
                                 })}
                             </tr>

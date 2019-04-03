@@ -47,7 +47,7 @@ class Creator extends Component {
         return (
             <div className="form-group">
 
-                <form onSubmit={() => this.elementCreate()}>
+                <form onSubmit={(e) => this.elementCreate(e)}>
                     <select value={this.state.category}
                     onChange={(e)=> this.setState({category: e.target.value})}>                    
                         <option>select</option>

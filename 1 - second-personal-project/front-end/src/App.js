@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-// import Navbar from './navbar'
+import Navbar from './components/navbar'
 import Display from './components/Display'
 import Creator from './components/Creator';
 import Character from './components/categories/Character'
@@ -47,7 +47,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Navbar /> */}
+        <Navbar />
         <Switch>
           <Route exact path='/' render={() =>  <Display elements={this.state.elements} />} />
           <Route path='/creator' render={() => <Creator creatorInput={this.addToCategory} />} />

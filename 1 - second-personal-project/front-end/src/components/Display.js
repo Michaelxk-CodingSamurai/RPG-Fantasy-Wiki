@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 class Display extends Component {
     state = {}
+
     render() {
         return (
             <div className="container">
@@ -10,7 +11,7 @@ class Display extends Component {
                 <table className="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>Attributes</th>
                         </tr>
@@ -25,10 +26,10 @@ class Display extends Component {
                                     <p>{element.category} </p>
                                     <img className="img-thumbnail fluid" src={element.image} alt="" />
                                 </td>
-                                {element.subcategory.map((object) => {
+                                {element.subcategory.map((object, i) => {
                                     return (
-                                        <tr key ={object.a}>
-                                            <td>{object.a} :</td>
+                                        <tr key={i}>
+                                            <td>{object.a}</td>
                                             <td>{object.b}</td>
                                         </tr>
                                     )

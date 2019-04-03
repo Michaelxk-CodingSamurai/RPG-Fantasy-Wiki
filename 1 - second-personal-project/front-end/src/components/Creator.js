@@ -6,8 +6,8 @@ class Creator extends Component {
         name: '',
         category: '',
         img: '',
-        attr: '',
-        stats: '',
+        a: '',
+        b: '',
         subcategory: []
 
     }
@@ -26,8 +26,8 @@ class Creator extends Component {
         this.setState({
 
             subcategory: newCategory,
-            attr: '',
-            stats: ''
+            a: '',
+            b: ''
 
 
         })
@@ -47,7 +47,7 @@ class Creator extends Component {
         return (
             <div className="form-group">
 
-                <form onSubmit={() => this.elementCreate()}>
+                <form onSubmit={(e) => this.elementCreate(e)}>
                     <select value={this.state.category}
                     onChange={(e)=> this.setState({category: e.target.value})}>                    
                         <option>select</option>
@@ -58,8 +58,8 @@ class Creator extends Component {
                     </select>
                    
                     
-                    <input value={this.state.attr} onChange={(e) => this.setState({ attr: e.target.value })} type="text" />
-                    <input value={this.state.stats} onChange={(e) => this.setState({ stats: e.target.value })} type="text" />
+                    <input value={this.state.a} onChange={(e) => this.setState({ a: e.target.value })} type="text" />
+                    <input value={this.state.b} onChange={(e) => this.setState({ b: e.target.value })} type="text" />
                     <input value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} type="text" />
                     <input value={this.state.img} onChange={(e) => this.setState({ img: e.target.value })} type="text" />
                     

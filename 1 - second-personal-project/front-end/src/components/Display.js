@@ -22,7 +22,7 @@ class Display extends Component {
                                 <td>
                                     <h4>{element.name}</h4>
                                     <p>{element.category}</p>
-                                    <img className="img-thumbnail fluid" src={element.image} alt=""/>
+                                    <img className="img-thumbnail fluid" src={element.image} alt="" />
                                 </td>
                                 {element.subcategory.map((object) => {
                                     return (

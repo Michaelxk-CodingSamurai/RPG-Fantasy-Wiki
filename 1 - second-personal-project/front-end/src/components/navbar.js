@@ -22,11 +22,11 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Compendium <span className="sr-only">(current)</span> </a>
+                            <Link to="/" className="nav-link" href="#">Compendium <span className="sr-only">(current)</span> </Link>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Create Content</a>
+                            <Link className="nav-link" href="#">Create Content</Link>
                         </li>
 
                         <li className="nav-item dropdown">

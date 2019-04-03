@@ -34,7 +34,7 @@ class Navbar extends Component {
                         <li className="nav-item">
 
                             <select onChange={(e) => setFilter(e.target.value)} >
-                                <option >Filter by Category</option>
+                                <option>Filter by Category</option>
                                 <option>Characters</option>
                                 <option>Locations</option>
                                 <option>Abilities</option>

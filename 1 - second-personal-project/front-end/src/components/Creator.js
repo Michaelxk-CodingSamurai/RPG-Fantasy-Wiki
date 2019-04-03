@@ -47,6 +47,7 @@ class Creator extends Component {
             <div className="form-group">
 
                 <form onSubmit={(e) => this.elementCreate(e)}>
+                    <div className="shadow-lg p-3 mb-5 bg-white rounded">
                     <select className="selectBox" value={this.state.category}
                     onChange={(e)=> this.setState({category: e.target.value})}>                    
                         <option>select</option>
@@ -55,27 +56,31 @@ class Creator extends Component {
                         <option>item</option>
                         <option>ability</option>
                     </select>
+                    
+                    <div className="inputBox">
+                    <span>Name:</span>
+                    <input id="one" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} size="40" type="text" placeholder="..."/>
+                    </div>
                    
                     <div className="inputBox">
-                    <span>Name</span>
-                    <input  value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} size="40" type="text" placeholder="name"/>
-                    </div>
-                    <div className="inputBox">
-                    <span>Attributes</span>
-                    <input  value={this.state.a} onChange={(e) => this.setState({ a: e.target.value })} size="40" type="text" placeholder=""/>
-                    </div>
-                    <div className="inputBox">
-                    <span>Attributes</span>
-                    <input  value={this.state.b} onChange={(e) => this.setState({ b: e.target.value })} size="40" type="text" placeholder=""/>
-                    </div> 
-                    <div className="inputBox">
-                    <span>Image</span>                
-                    <input  value={this.state.img} onChange={(e) => this.setState({ img: e.target.value })} size="40" type="text" placeholder="image url"/>
+                    <span>Image:</span>                
+                    <input  id="three" value={this.state.img} onChange={(e) => this.setState({ img: e.target.value })} size="40" type="text" placeholder="image url..."/>
                     </div>  
+
+                    <div className="attrBox">
+                    <span>Attributes:</span>
+                    <input  id="two" value={this.state.a} onChange={(e) => this.setState({ a: e.target.value })} size="40" type="text" placeholder=""/>
+                    <span id="colon">:</span>
+                    <input  value={this.state.b} onChange={(e) => this.setState({ b: e.target.value })} size="40" type="text" placeholder=""/>
+                    </div>
                   
 
+                    <div id="btn">
                     
-                    <button type='submit' className="btn btn-primary">Submit</button>
+                    <button type='submit' className="btn btn-dark btn-lg">Make it Happen</button>
+                    </div>
+                    </div>   
+                  
                 </form>
 
             </div>

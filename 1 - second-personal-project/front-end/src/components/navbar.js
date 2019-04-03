@@ -3,23 +3,32 @@ import '../App.css'
 import { Link, Redirect } from 'react-router-dom'
 
 class Navbar extends Component {
+    state = {
+        filter: ''
+    }
 
-
+    setFilter = (pagename) => {
+        this.setState({
+            filter: pagename
+        })
+    }
 
     render() {
 
-      const setFilter = (pagename) => {
-            console.log(pagename)
-            if (pagename === 'Characters') {
-                return (<Redirect to="/characters" />)
-            } else if (pagename === 'Locations') {
-                return (<Redirect to="/locations" />)
-            } else if (pagename === 'Abilities') {
-                return (<Redirect to="/abilities" />)
-            } else if (pagename === 'Items') {
-                return (<Redirect to="/items" />)
-            }
+        if (this.state.filter === 'Characters') {
+            this.setFilter('')
+            return <Redirect to="/characters" />
+        } else if (this.state.filter === 'Locations') {
+            this.setFilter('')
+            return <Redirect to="/locations" />
+        } else if (this.state.filter === 'Abilities') {
+            this.setFilter('')
+            return <Redirect to="/abilities" />
+        } else if (this.state.filter === 'Items') {
+            this.setFilter('')
+            return <Redirect to="/items" />
         }
+      
 
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,7 +42,7 @@ class Navbar extends Component {
 
                         <li className="nav-item">
 
-                            <select onChange={(e) => setFilter(e.target.value)} >
+                            <select onChange={(e) => this.setFilter(e.target.value)} >
                                 <option >Filter by Category</option>
                                 <option>Characters</option>
                                 <option>Locations</option>

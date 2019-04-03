@@ -45,14 +45,14 @@ class App extends Component {
   
 
   addElement = (state) => {
-    let shit = {
+    let data = {
       name: state.name,
       category: state.category,
       image: state.img,
       subcategory: state.subcategory
     }
-      console.log(shit)
-      this.createElements(shit)
+   
+      this.createElements(data)
   }
 
 

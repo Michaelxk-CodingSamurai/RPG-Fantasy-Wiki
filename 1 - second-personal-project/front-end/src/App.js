@@ -33,44 +33,32 @@ class App extends Component {
 
  
 
-  // addToCategory = (a, b) => {
 
-  //   let newStats = [...this.state.elements, { a, b }]
+  createElements = (element) => {
+    axios.post('http://localhost:5000/elements', element)
+      .then(res => {
+        console.log(res);
+      })
+  }
 
-  //   this.setState({
-
-  //     elements: newStats
-
-  //   })
 
   
 
   addElement = (state) => {
-
     let shit = {
       name: state.name,
       category: state.category,
       image: state.img,
       subcategory: state.subcategory
     }
-
       console.log(shit)
       this.createElements(shit)
-  
-
-
   }
 
 
 
+ 
 
-
-  createElements = (e) => {
-    axios.post('http://localhost:5000/elements', e)
-      .then(res => {
-        console.log(res);
-      })
-  }
 
 
   render() {
@@ -79,7 +67,7 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path='/' render={() =>  <Display elements={this.state.elements} />} />
-          <Route path='/creator' render={() => <Creator creatorInput={this.addToCategory} addElement={this.state.addElement} />} />
+          <Route path='/creator' render={() => <Creator addElement={this.addElement} />} />
         </Switch>
       </div>  
     );

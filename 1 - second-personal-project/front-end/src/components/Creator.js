@@ -6,8 +6,8 @@ class Creator extends Component {
         name: '',
         category: '',
         img: '',
-        attr: '',
-        stats: '',
+        a: '',
+        b: '',
         subcategory: []
 
     }
@@ -18,20 +18,15 @@ class Creator extends Component {
         e.preventDefault();
 
         
-        let newCategory = [...this.state.subcategory, {attr: this.state.attr, stats: this.state.stats}]
-        // this.props.creatorInput(this.state.attr, this.state.stats)
-        
-
+        let newCategory = [...this.state.subcategory, {a: this.state.a, b: this.state.b}]
+        // this.props.creatorInput(this.state.a, this.state.b)
+    
 
         this.setState({
-
             subcategory: newCategory,
-            attr: '',
-            stats: ''
-
-
+            a: '',
+            b: ''
         })
-
     }
 
     elementCreate = (e) => {
@@ -58,12 +53,12 @@ class Creator extends Component {
                     </select>
                    
                     
-                    <input value={this.state.attr} onChange={(e) => this.setState({ attr: e.target.value })} type="text" />
-                    <input value={this.state.stats} onChange={(e) => this.setState({ stats: e.target.value })} type="text" />
-                    <input value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} type="text" />
-                    <input value={this.state.img} onChange={(e) => this.setState({ img: e.target.value })} type="text" />
+                    <input value={this.state.a} onChange={(e) => this.setState({ a: e.target.value })} type="text" placeholder="a"/>
+                    <input value={this.state.b} onChange={(e) => this.setState({ b: e.target.value })} type="text" placeholder="b"/>
+                    <input value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} type="text" placeholder="name"/>
+                    <input value={this.state.img} onChange={(e) => this.setState({ img: e.target.value })} type="text" placeholder="image url"/>
                     
-                    <button type='submit' className="btn btn-primary">Update</button>
+                    <button type='submit' className="btn btn-primary">Submit</button>
                 </form>
 
             </div>

@@ -83,4 +83,11 @@ module.exports.elements = [
             {a: "cost", b: "The Wielder's Soul"},
         ]
     },
+    {
+        name:"Hokuto Shinken",
+        category: "ability",
+        image:"",
+    }
+
+
 ]

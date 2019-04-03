@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 // import Navbar from './navbar'
 import Display from './components/Display'
 import Creator from './components/Creator';
-import Character from './components/Character'
+import Character from './components/categories/Character'
 
 
 class App extends Component {

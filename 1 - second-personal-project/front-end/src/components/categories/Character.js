@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Display from './Display'
+import Display from '../Display'
 
 const Character = props => {
         return ( 

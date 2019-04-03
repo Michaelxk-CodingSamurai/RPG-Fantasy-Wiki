@@ -26,7 +26,7 @@ class Navbar extends Component {
                         </li>
 
                         <li className="nav-item">
-                            <Link className="nav-link" href="#">Create Content</Link>
+                            <Link to="/creator" className="nav-link" href="#">Create Content</Link>
                         </li>
 
                         <li className="nav-item dropdown">
@@ -34,10 +34,10 @@ class Navbar extends Component {
                                 Categories
                             </a>
                             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a className="dropdown-item" href="#">Action</a>
-                                <a className="dropdown-item" href="#">Another action</a>
-                                <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#">Something else here</a>
+                                <a to="/charactors" className="dropdown-item" href="#">charactors</a>
+                                <a to="/locations" className="dropdown-item" href="#">locations</a>
+                                <a to="/abilities" className="dropdown-item" href="#">abilities</a>
+                                <a to="/items" className="dropdown-item" href="#">items</a>
                             </div>
                         </li>
                     </ul>

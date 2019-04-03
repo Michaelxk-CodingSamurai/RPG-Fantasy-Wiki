@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Navbar from './components/navbar'
 import Display from './components/Display'
 import Creator from './components/Creator';
-import Character from './components/Character'
+import Character from './components/categories/Character'
 
 
 class App extends Component {
@@ -31,16 +31,45 @@ class App extends Component {
       })
   }
 
-  addToCategory = (a, b) => {
+ 
 
-    let newStats = [...this.state.elements, { a, b }]
+  // addToCategory = (a, b) => {
 
-    this.setState({
+  //   let newStats = [...this.state.elements, { a, b }]
 
-      subCategory: newStats
+  //   this.setState({
 
-    })
+  //     elements: newStats
 
+  //   })
+
+  
+
+  addElement = (state) => {
+
+    let shit = {
+      name: state.name,
+      category: state.category,
+      image: state.img,
+      subcategory: state.subcategory
+    }
+
+      console.log(shit)
+      this.createElements(shit)
+  
+
+
+  }
+
+
+
+
+
+  createElements = (e) => {
+    axios.post('http://localhost:5000/elements', e)
+      .then(res => {
+        console.log(res);
+      })
   }
 
 
@@ -50,8 +79,7 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path='/' render={() =>  <Display elements={this.state.elements} />} />
-          <Route path='/creator' render={() => <Creator creatorInput={this.addToCategory} />} />
-          <Route path='/characters' render={() => <Character elements={this.state.elements}/>} />
+          <Route path='/creator' render={() => <Creator creatorInput={this.addToCategory} addElement={this.state.addElement} />} />
         </Switch>
       </div>  
     );

@@ -6,10 +6,9 @@ class Creator extends Component {
         name: '',
         category: '',
         img: '',
-        subcategory: [],
-    
-
-
+        attr: '',
+        stats: '',
+        subcategory: []
 
     }
 
@@ -18,10 +17,15 @@ class Creator extends Component {
 
         e.preventDefault();
 
-        this.props.creatorInput(this.state.attr, this.state.stats)
+        
+        let newCategory = [...this.state.subcategory, {attr: this.state.attr, stats: this.state.stats}]
+        // this.props.creatorInput(this.state.attr, this.state.stats)
+        
+
 
         this.setState({
 
+            subcategory: newCategory,
             attr: '',
             stats: ''
 
@@ -30,12 +34,20 @@ class Creator extends Component {
 
     }
 
+    elementCreate = (e) => {
+
+        e.preventDefault();
+        this.props.addElement(this.state)
+
+
+    }
+
 
     render() {
         return (
             <div className="form-group">
 
-                <form onSubmit={(e) => this.add(e)}>
+                <form onSubmit={() => this.elementCreate()}>
                     <select value={this.state.category}
                     onChange={(e)=> this.setState({category: e.target.value})}>                    
                         <option>select</option>
@@ -46,10 +58,12 @@ class Creator extends Component {
                     </select>
                    
                     
+                    <input value={this.state.attr} onChange={(e) => this.setState({ attr: e.target.value })} type="text" />
+                    <input value={this.state.stats} onChange={(e) => this.setState({ stats: e.target.value })} type="text" />
                     <input value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} type="text" />
                     <input value={this.state.img} onChange={(e) => this.setState({ img: e.target.value })} type="text" />
                     
-                    <button className="btn btn-primary">Update</button>
+                    <button type='submit' className="btn btn-primary">Update</button>
                 </form>
 
             </div>

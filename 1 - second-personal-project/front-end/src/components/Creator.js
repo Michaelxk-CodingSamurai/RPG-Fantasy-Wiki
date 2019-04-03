@@ -21,7 +21,7 @@ class Creator extends Component {
         let newCategory = [...this.state.subcategory, {a: this.state.a, b: this.state.b}]
         // this.props.creatorInput(this.state.a, this.state.b)
     
-
+        console.log(newCategory)
         this.setState({
             subcategory: newCategory,
             a: '',

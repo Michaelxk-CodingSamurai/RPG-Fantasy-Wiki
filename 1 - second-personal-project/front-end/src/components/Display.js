@@ -12,12 +12,12 @@ class Display extends Component {
                             <th>#</th>
                             <th>Name</th>
                             <th>Attributes</th>
-
                         </tr>
                     </thead>
+                    
                     <tbody >
                         {this.props.elements.map((element, index) =>
-                            <tr key={element.name}>
+                            <tr key={element.id}>
                                 <th>{index + 1}</th>
                                 <td>
                                     <h4>{element.name}</h4>
@@ -29,10 +29,7 @@ class Display extends Component {
                                         <div>
                                             <td>{object.a}</td>
                                             <td>{object.b}</td>
-
                                         </div>
-
-
                                     )
                                 })}
                             </tr>

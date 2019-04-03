@@ -28,11 +28,17 @@ class Creator extends Component {
     }
 
     elementCreate = (e) => {
-
         e.preventDefault();
         this.add();
         this.props.addElement(this.state)
-   
+        this.setState({
+
+            name: '',
+            category: '',
+            img: '',
+            a: '',
+            b: '',
+        })
     }
 
 

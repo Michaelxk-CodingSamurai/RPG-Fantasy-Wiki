@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Display from '../Display'
 
-const Character = props => {
+const Ability = props => {
     return (
         <div>
             <Display elements={props.elements.filter((element) =>
-                element.category === "character")} />
+                element.category === "ability")} />
         </div>
     );
 
 }
 
-export default Character;
+export default Ability;

@@ -1,26 +1,47 @@
 import React, { Component } from 'react';
 import '../App.css'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 class Navbar extends Component {
-    state = {
-        activeTab: "",
-    }
 
-    toggleActive = (e) => {
-        this.setState({ activeTab: e })
-    }
+
 
     render() {
+
+      const setFilter = (pagename) => {
+            console.log(pagename)
+            if (pagename === 'Characters') {
+                return (<Redirect to="/characters" />)
+            } else if (pagename === 'Locations') {
+                return (<Redirect to="/locations" />)
+            } else if (pagename === 'Abilities') {
+                return (<Redirect to="/abilities" />)
+            } else if (pagename === 'Items') {
+                return (<Redirect to="/items" />)
+            }
+        }
+
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">Adventure Compendium</a>
+                <header className="navbar-brand" href="/">Adventure Compendium</header>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
+
+                        <li className="nav-item">
+
+                            <select onChange={(e) => setFilter(e.target.value)} >
+                                <option >Filter by Category</option>
+                                <option>Characters</option>
+                                <option>Locations</option>
+                                <option>Abilities</option>
+                                <option>Items</option>
+                            </select>
+                        </li>
+
                         <li className="nav-item active">
                             <Link to="/" className="nav-link" href="#">Compendium <span className="sr-only">(current)</span> </Link>
                         </li>
@@ -29,27 +50,16 @@ class Navbar extends Component {
                             <Link to="/creator" className="nav-link" href="#">Create Content</Link>
                         </li>
 
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Categories
-                            </a>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a to="/charactors" className="dropdown-item" href="#">charactors</a>
-                                <a to="/locations" className="dropdown-item" href="#">locations</a>
-                                <a to="/abilities" className="dropdown-item" href="#">abilities</a>
-                                <a to="/items" className="dropdown-item" href="#">items</a>
-                            </div>
-                        </li>
                     </ul>
 
                     <form className="form-inline my-2 my-lg-0">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
             </nav>
-            );
-          }
-      }
-       
+        );
+    }
+}
+
 export default Navbar;

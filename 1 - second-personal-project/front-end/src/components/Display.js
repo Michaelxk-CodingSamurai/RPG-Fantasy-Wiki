@@ -12,27 +12,24 @@ class Display extends Component {
                             <th>#</th>
                             <th>Name</th>
                             <th>Attributes</th>
-
                         </tr>
                     </thead>
+                    
                     <tbody >
                         {this.props.elements.map((element, index) =>
-                            <tr key={element.name}>
+                            <tr key={element.id}>
                                 <th>{index + 1}</th>
                                 <td>
                                     <h4>{element.name}</h4>
                                     <p>{element.category}</p>
-                                    <img className="img-thumbnail fluid" src={element.image} alt=""/>
+                                    <img className="img-thumbnail fluid" src={element.image} alt="" />
                                 </td>
                                 {element.subcategory.map((object) => {
                                     return (
                                         <div>
                                             <td>{object.a}</td>
                                             <td>{object.b}</td>
-
                                         </div>
-
-
                                     )
                                 })}
                             </tr>

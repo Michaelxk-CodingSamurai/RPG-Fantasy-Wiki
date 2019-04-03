@@ -24,15 +24,11 @@ class App extends Component {
   getElements = () => {
     axios.get('http://localhost:5000/elements')
       .then(res => {
-        console.log(res.data)
         this.setState({
           elements: res.data
         })
       })
   }
-
-
-
 
   createElements = (element) => {
     axios.post('http://localhost:5000/elements', element)
@@ -40,25 +36,15 @@ class App extends Component {
       })
   }
 
-
-
-
   addElement = (state) => {
-    let element = {
+    let newData = {
       name: state.name,
       category: state.category,
       image: state.img,
       subcategory: state.subcategory
     }
-    // console.log(element)
-    this.createElements(element)
+      this.createElements(newData)
   }
-
-
-
-
-
-
 
   render() {
     return (

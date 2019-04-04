@@ -25,11 +25,14 @@ max-width:700px;
 }
 
 .attrBox {
-    margin-left: 26%;
+  
+    
     padding: 2%;
 }
 
 #subcats {
+    
+    margin-top: 1%;
     border-style: inset;
     border-width: 3px;
     width: 50%;
@@ -37,13 +40,10 @@ max-width:700px;
 .listnostyle {
     list-style: none;
     font-size: 1.5em;
-    margin: 2%;
+    margin: 1%;
 }
 #addbtn {
 margin-left: 15px;
-}
-.navbar {
-
 }
 .updateBtn {
     position: relative;
@@ -52,3 +52,16 @@ margin-left: 15px;
         position: absolute;
         bottom: 0;
         }
+.navbar {
+
+  position: fixed;
+
+
+}
+
+#addSpace {
+
+    padding-top: 6%;
+
+}
+

@@ -5,7 +5,7 @@ class Creator extends Component {
 
         name: '',
         category: '',
-        img: '',
+        image: '',
         a: '',
         b: '',
         subcategory: []
@@ -26,12 +26,12 @@ class Creator extends Component {
     elementCreate = (e) => {
         e.preventDefault();
 
-        this.props.addElement(this.state)
+        this.props.createElements(this.state)
         this.setState({
 
             name: '',
             category: '',
-            img: '',
+            image: '',
             a: '',
             b: '',
             subcategory: []
@@ -61,10 +61,10 @@ class Creator extends Component {
 
                         <div className="inputBox">
                             <span>Image:</span>
-                            <input className="one" value={this.state.img} onChange={(e) => this.setState({ img: e.target.value })} size="40" type="text" placeholder="image url..." />
+                            <input className="one" value={this.state.image} onChange={(e) => this.setState({ image: e.target.value })} size="40" type="text" placeholder="image url..." />
                         </div>
 
-                        <div className="attrBox m-0">
+                        <div className="attrBox">
                             <h3>Subcategories</h3> <h6>(example...Health: 100)</h6>
                             <span>Attribute:</span>
                             <input className="one" value={this.state.a} onChange={(e) => this.setState({ a: e.target.value })} size="40" type="text" placeholder="" />

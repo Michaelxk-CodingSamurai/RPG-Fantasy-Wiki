@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 const elementsController = require('../controllers/elements-controller')
 
 router.get('/elements', elementsController.allElements)
-router.post('/seed', elementsController.seedDBElements)
+router.post('/elements/seed', elementsController.seedDBElements)
 
 router.get('/elements/:id', elementsController.getByIdElement)
 router.post('/elements', elementsController.createElement)

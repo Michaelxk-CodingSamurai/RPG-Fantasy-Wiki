@@ -11,10 +11,10 @@ class Display extends Component {
 
                 <table className="container-fluid shadow-lg">
 
-                        <tr className='table shadow-lg '>
+                        <tr className='table shadow-lg text-lg'>
                             <td>#</td>
-                            <td></td>
-                            <td >Name</td>
+                            <td>Image</td>
+                            <td>Name</td>
                             <td className=''>Category</td>
                         </tr>
 
@@ -34,9 +34,6 @@ class Display extends Component {
                                 <td>
                                     <h5 className="">{element.category} </h5>
                                 </td>     
-                                 
-                                    <li><button className="btn btn-danger btn-sm m-1 float-right"
-                                        onClick={() => this.props.deleteElementByID(element._id)}>x</button></li>
                             
                             </tr>
                         )}

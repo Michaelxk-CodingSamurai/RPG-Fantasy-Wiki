@@ -1,44 +1,47 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import { Redirect } from 'react-router-dom'
 
 class Profile extends Component {
     state = {
         elements: [],
         editing: false,
+        deleted: false,
     }
 
     componentDidMount() {
-        this.getElementByID(this.props.match.params.id)
-    }
-
-    getElementByID = (id) => {
-        axios.get(`http://localhost:5000/elements/${id}`)
-            .then(res => {
-                this.setState({
-                    elements: res.data
-                })
-            })
+        this.props.getElementByID(this.props.match.params.id)
     }
 
     render() {
+       
+        if (this.state.deleted === true) { return <Redirect to="/" /> }
+        if (this.state.editing === true) { return <Redirect to={`/profile/${this.state.elements._id}/edit `}/> }
+
             return (
                 <div className="container">
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>Name </th>
-                                <th>Attributes<button className='float-right'>edit</button></th>
+                                <th>Attributes
+                                    <button className='float-right'
+                                        onClick={() => this.setState({editing: true})}>edit</button>
+                                    <button className="float-right"
+                                        onClick={() => {this.props.deleteElementByID(this.props.selectedProfile._id); this.setState({deleted: true})} }>
+                                    X</button>
+                                </th>
                             </tr>
                         </thead>
     
                         <tbody>
                             <tr>
                                 <td>
-                                    <h4>{this.state.elements.name}</h4>
-                                    <p>{this.state.elements.category}</p>
-                                    <img className="img-thumbnail" src={this.state.elements.image} alt="" />
+                                    <h4>{this.props.selectedProfile.name}</h4>
+                                    <p>{this.props.selectedProfile.category}</p>
+                                    <img className="img-thumbnail" src={this.props.selectedProfile.image} alt="" />
                                 </td>                        
-                                {this.state.elements.subcategory && this.state.elements.subcategory.map((object) => {
+                                {this.props.selectedProfile.subcategory && this.props.selectedProfile.subcategory.map((object) => {
                                         return (
                                             <tr className='' key ={object.a}>
                                                 <td>{object.a} :</td>

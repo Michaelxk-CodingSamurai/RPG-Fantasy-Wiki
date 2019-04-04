@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import '../App.css';
 
 class Display extends Component {
     state = {}
 
-    componentDidMount() {
-        this.props.getElements()
-    }
 
     render() {
-        console.log(this.props.elements)
         return (
             <div className="container bg-white">
 

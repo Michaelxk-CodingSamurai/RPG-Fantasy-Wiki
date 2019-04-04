@@ -13,7 +13,7 @@ class Display extends Component {
 
                         <tr className='table shadow-lg text-lg'>
                             <td>#</td>
-                            <td></td>
+                            <td>Image</td>
                             <td>Name</td>
                             <td className=''>Category</td>
                         </tr>

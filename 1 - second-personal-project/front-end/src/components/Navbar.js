@@ -28,7 +28,6 @@ class Navbar extends Component {
             this.setFilter('')
             return <Redirect to="/items" />
         }
-      
 
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">

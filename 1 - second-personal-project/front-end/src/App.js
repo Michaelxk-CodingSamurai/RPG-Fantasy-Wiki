@@ -33,7 +33,6 @@ class App extends Component {
   getElements = () => {
     axios.get('http://localhost:5000/elements')
       .then(res => {
-        // console.log(res.data)
         this.setState({
           elements: res.data,
         })
@@ -54,6 +53,7 @@ class App extends Component {
       image: state.img,
       subcategory: state.subcategory
     }
+      console.log(newData)
       this.createElements(newData)
       
   }

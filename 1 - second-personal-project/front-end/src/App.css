@@ -11,10 +11,47 @@ max-width:700px;
 .inputBox {
 
     display: block;
-    margin: 2% auto;
-    text-align: center;
+    margin-top: 2%;
+    margin-left: 2%;
+    /* margin-right: 9.5%; */
+    /* text-align: center; */
+}
+
+#colon {
+    padding: 0 1%;
+    font-size: 20px;
+}
+
+.one {
+    margin-left: 1%;
+}
+
+
+#btn {
+   /* text-align: center; */
+   padding-bottom: 1%;
+   padding-left: 2.5%;
+   padding-top: 2%;
+   margin: 0 auto;
+}
+
+.attrBox {
+  
     
+    padding: 2%;
+}
 
-
+#subcats {
+    border-style: inset;
+    border-width: 3px;
+    width: 53.5%;
+}
+.listnostyle {
+    list-style: none;
+    font-size: 1.5em;
+    margin: 2%;
+}
+#addbtn {
+margin-left: 15px;
 }
 

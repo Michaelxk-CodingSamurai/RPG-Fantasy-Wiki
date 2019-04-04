@@ -57,6 +57,7 @@ margin-left: 15px;
 .updateBtn {
     position: relative;
     }
+    
     .updateBtn p {
         position: absolute;
         bottom: 0;
@@ -88,3 +89,30 @@ margin-left: 15px;
 .td {
     text-align: center;
 }
+
+body { 
+
+    font-family: 'Special Elite', cursive;
+    background: url("./components/deathAxe.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+h1 {
+
+   margin: 5% 0;
+   
+
+}
+
+.btn-dark {
+
+    padding-top: 5%;
+
+}
+
+
+
+ 

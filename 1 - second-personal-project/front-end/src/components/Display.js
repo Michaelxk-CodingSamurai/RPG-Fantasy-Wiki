@@ -14,7 +14,7 @@ class Display extends Component {
                         <tr className='table shadow-lg '>
                             <td>#</td>
                             <td></td>
-                            <td>Name</td>
+                            <td >Name</td>
                             <td className=''>Category</td>
                         </tr>
 
@@ -28,15 +28,15 @@ class Display extends Component {
                                 <td className=''>
                                     <img className="img-thumbnail imgThumb" src={element.image} alt="" />
                                 </td>
-                                <td>
+                                <td className='my-3'>
                                     <Link className="" button to={`/profile/${element._id}`}><h1 classname=''>{element.name}</h1></Link>
                                 </td>
                                 <td>
                                     <h5 className="">{element.category} </h5>
                                 </td>     
                                  
-                                    {/* <li><button className="btn btn-danger btn-sm m-1 float-right"
-                                        onClick={() => this.props.deleteElementByID(element._id)}>x</button></li> */}
+                                    <li><button className="btn btn-danger btn-sm m-1 float-right"
+                                        onClick={() => this.props.deleteElementByID(element._id)}>x</button></li>
                             
                             </tr>
                         )}

@@ -16,7 +16,7 @@ class Profile extends Component {
 
    
     render() {
-       
+     
         if (this.state.deleted === true) { return <Redirect to="/" /> }
         if (this.state.editing === true) { return <Redirect to={`/profile/${this.state.elements._id}/edit `}/> }
 
@@ -30,7 +30,7 @@ class Profile extends Component {
                                     <button className='float-right'
                                         onClick={() => this.setState({editing: true})}>edit</button>
                                     <button className="float-right"
-                                        onClick={() => {this.props.deleteProfile(this.props.elements._id); this.setState({deleted: true})} }>
+                                        onClick={() => {this.props.deleteElementByID(this.props.elements._id); this.setState({deleted: true})} }>
                                     X</button>
                                 </th>
                             </tr>

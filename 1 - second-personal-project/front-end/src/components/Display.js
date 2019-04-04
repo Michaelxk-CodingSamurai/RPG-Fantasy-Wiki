@@ -5,7 +5,12 @@ import '../App.css';
 class Display extends Component {
     state = {}
 
+    componentDidMount() {
+        this.props.getElements()
+    }
+
     render() {
+        console.log(this.props.elements)
         return (
             <div className="container bg-white">
 
@@ -15,7 +20,7 @@ class Display extends Component {
                             <td>#</td>
                             <td>Image</td>
                             <td>Name</td>
-                            <td className=''>Category</td>
+                            <td>Category</td>
                         </tr>
 
                         {this.props.elements.map((element, index) =>

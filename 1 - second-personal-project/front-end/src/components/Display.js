@@ -31,13 +31,20 @@ class Display extends Component {
                             <td>
 
                                 <td>
-                                    <Link button to={`/profile/${element._id}`}><h1 >{element.name}</h1></Link>
+                                    <h4 className='text-center'>{index + 1}</h4>
                                 </td>
-                                <h5>{element.category} </h5>
-                            </td>
-
-                        </tr>
-                    )}
+                                <td className=''>
+                                    <img className="img-thumbnail imgThumb" src={element.image} alt="" />
+                                </td>
+                               
+                                <td className='my-3'>
+                                    <Link  button to={`/profile/${element._id}`}><h1 >{element.name}</h1></Link>
+                                </td>
+                                    <h5>{element.category} </h5>
+                                   
+                            
+                            </tr>
+                        )}
                 </table>
 
             </div>

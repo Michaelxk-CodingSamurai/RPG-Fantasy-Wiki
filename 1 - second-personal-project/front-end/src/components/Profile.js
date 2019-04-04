@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 
 class Profile extends Component {
     state = {
-        elements: [],
+        // elements: [],
         editing: false,
         deleted: false,
     }
@@ -12,7 +12,9 @@ class Profile extends Component {
     componentDidMount() {
         this.props.getElementByID(this.props.match.params.id)
     }
+    
 
+   
     render() {
        
         if (this.state.deleted === true) { return <Redirect to="/" /> }
@@ -28,7 +30,7 @@ class Profile extends Component {
                                     <button className='float-right'
                                         onClick={() => this.setState({editing: true})}>edit</button>
                                     <button className="float-right"
-                                        onClick={() => {this.props.deleteElementByID(this.props.selectedProfile._id); this.setState({deleted: true})} }>
+                                        onClick={() => {this.props.deleteProfile(this.props.elements._id); this.setState({deleted: true})} }>
                                     X</button>
                                 </th>
                             </tr>
@@ -37,11 +39,11 @@ class Profile extends Component {
                         <tbody>
                             <tr>
                                 <td>
-                                    <h4>{this.props.selectedProfile.name}</h4>
-                                    <p>{this.props.selectedProfile.category}</p>
-                                    <img className="img-thumbnail" src={this.props.selectedProfile.image} alt="" />
+                                    <h4>{this.props.elements.name}</h4>
+                                    <p>{this.props.elements.category}</p>
+                                    <img className="img-thumbnail" src={this.props.elements.image} alt="" />
                                 </td>                        
-                                {this.props.selectedProfile.subcategory && this.props.selectedProfile.subcategory.map((object) => {
+                                {this.props.elements.subcategory && this.props.elements.subcategory.map((object) => {
                                         return (
                                             <tr className='' key ={object.a}>
                                                 <td>{object.a} :</td>

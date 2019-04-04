@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import '../App.css'
 
 class UpdateForm extends Component {
@@ -8,10 +7,7 @@ class UpdateForm extends Component {
         editing: true,
     }
 
-    componentDidMount() {
-        this.getElementByID(this.props.match.params.id)
-    }
-
+  
     updateFields = (e) => {
         console.log(this.state.elements)
         // let newElements = [...this.state.elements]

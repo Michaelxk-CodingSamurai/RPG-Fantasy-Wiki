@@ -25,7 +25,6 @@ class App extends Component {
   getElements = () => {
     axios.get('http://localhost:5000/elements')
       .then(res => {
-        console.log(res.data)
         this.setState({
           elements: res.data,
           selectedID: null,

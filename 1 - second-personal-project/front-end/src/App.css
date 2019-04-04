@@ -14,51 +14,31 @@ max-width:700px;
     margin: 2%;
     margin-right: 9.5%;
     text-align: center;
-    
-
-
 }
 
 #colon {
-
     padding: 0 1%;
     font-size: 20px;
-
 }
 
-#one {
-
-    margin-left: 1%;
-
-}
-
-#two {
+.one {
     margin-left: 1%;
 }
 
-#three {
-
-    margin-left: 1%;
-  
-}
 
 #btn {
-
    /* text-align: center; */
    padding-bottom: 1%;
    padding-left: 2.5%;
    padding-top: 2%;
    margin: 0 auto;
-
-   
-
 }
 
 .attrBox {
-
     margin-left: 26%;
-
-
+    padding: 2%;
+    border-style: outset;
+    border-width: 3px;
 }
 
 

@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 
 class Profile extends Component {
     state = {
-        elements: [],
+        // elements: [],
         editing: false,
         deleted: false,
     }
@@ -11,7 +11,9 @@ class Profile extends Component {
     componentDidMount() {
         this.props.getElementByID(this.props.match.params.id)
     }
+    
 
+   
     render() {
         console.log(this.props.elements)
         console.log(this.props.elements._id)

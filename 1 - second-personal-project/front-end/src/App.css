@@ -1,6 +1,7 @@
 .img-thumbnail {
 max-width:700px;
 }
+
 .inputBox {
 
     display: block;
@@ -9,13 +10,20 @@ max-width:700px;
     /* margin-right: 9.5%; */
     /* text-align: center; */
 }
+
 #colon {
     padding: 0 1%;
     font-size: 20px;
 }
+
 .one {
     margin-left: 1%;
 }
+
+.two {
+    margin: 2%;
+}
+
 #btn {
    /* text-align: center; */
    padding-bottom: 1%;
@@ -25,8 +33,6 @@ max-width:700px;
 }
 
 .attrBox {
-  
-    
     padding: 2%;
 }
 
@@ -37,14 +43,17 @@ max-width:700px;
     border-width: 3px;
     width: 50%;
 }
+
 .listnostyle {
     list-style: none;
     font-size: 1.5em;
     margin: 1%;
 }
+
 #addbtn {
 margin-left: 15px;
 }
+
 .updateBtn {
     position: relative;
     }
@@ -52,16 +61,30 @@ margin-left: 15px;
         position: absolute;
         bottom: 0;
         }
+
 .navbar {
-
   position: fixed;
-
-
 }
 
 #addSpace {
-
     padding-top: 6%;
-
 }
 
+.imgThumb {
+    max-width: 35%;
+    max-height: 10%;
+    margin: 0%;
+}
+
+.line {
+    display: inline-block;
+    table-layout: fixed;
+    width: 100%;
+}
+.tdNoPad {
+    padding: unset;
+    margin: unset;
+}
+.td {
+    text-align: center;
+}

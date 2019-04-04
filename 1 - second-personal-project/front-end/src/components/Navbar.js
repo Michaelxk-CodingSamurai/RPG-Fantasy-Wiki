@@ -30,8 +30,8 @@ class Navbar extends Component {
         }
 
         return (
-            
-            <nav className="container-fluid navbar navbar-expand-lg navbar-light bg-light">
+
+            <nav className="container-fluid navbar navbar-expand-lg navbar-dark bg-dark">
                 <header className="navbar-brand" href="/">Adventure Compendium</header>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -41,9 +41,13 @@ class Navbar extends Component {
                     <ul className="navbar-nav mr-auto">
 
                         <li className="nav-item">
+                            <Link to="/" className="nav-link" >Compendium </Link>
+                        </li>
 
-                            <select onChange={(e) => this.setFilter(e.target.value)} >
-                                <option >Filter by Category</option>
+                        <li className="nav-item dropdown">
+
+                            <select className='btn btn-dark nav-link dropdown-toggle' href="#" id="navbarDropdown" onChange={(e) => this.setFilter(e.target.value)} >
+                                <option>Filter by Category</option>
                                 <option>Characters</option>
                                 <option>Locations</option>
                                 <option>Abilities</option>
@@ -51,14 +55,10 @@ class Navbar extends Component {
                             </select>
                         </li>
 
-                        <li className="nav-item active">
-                            <Link to="/" className="nav-link" href="#">Compendium <span className="sr-only">(current)</span> </Link>
-                        </li>
-
                         <li className="nav-item">
-                            <Link to="/creator" className="nav-link" href="#">Create Content</Link>
+                            <Link to="/creator" className="nav-link" >Create Content</Link>
                         </li>
-
+                        
                     </ul>
 
                     <form className="form-inline my-2 my-lg-0">

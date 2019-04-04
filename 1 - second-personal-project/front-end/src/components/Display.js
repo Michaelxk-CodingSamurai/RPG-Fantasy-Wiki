@@ -1,45 +1,45 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import '../App.css';
 
 class Display extends Component {
     state = {}
 
     render() {
         return (
-            <div className="container">
+            <div className="container bg-white">
 
-                <table className="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Attributes</th>
+                <table className="container-fluid shadow-lg">
+
+                        <tr className='table shadow-lg '>
+                            <td>#</td>
+                            <td></td>
+                            <td>Name</td>
+                            <td className=''>Category</td>
                         </tr>
-                    </thead>
-                    
-                    <tbody >
+
                         {this.props.elements.map((element, index) =>
-                            <tr key={element._id}>
-                                <th>{index + 1}
-                                    <button className="btn btn-danger btn-sm"
-                                        onClick={() => this.props.deleteElementByID(element._id)}>x</button>
-                                </th>
+
+                            <tr className='tdNoPad shadow-lg' key={element._id}>
+
                                 <td>
-                                    <Link button to={`/profile/${element._id}`}><h3>{element.name}</h3></Link>
-                                    <p>{element.category} </p>
-                                    <img className="img-thumbnail fluid" src={element.image} alt="" />
+                                    <h4 className='text-center'>{index + 1}</h4>
                                 </td>
-                                {element.subcategory.map((object, i) => {
-                                    return (
-                                        <tr key={i}>
-                                            <td>{object.a}</td>
-                                            <td>{object.b}</td>
-                                        </tr>
-                                    )
-                                })}
+                                <td className=''>
+                                    <img className="img-thumbnail imgThumb" src={element.image} alt="" />
+                                </td>
+                                <td>
+                                    <Link className="" button to={`/profile/${element._id}`}><h1 classname=''>{element.name}</h1></Link>
+                                </td>
+                                <td>
+                                    <h5 className="">{element.category} </h5>
+                                </td>     
+                                 
+                                    {/* <li><button className="btn btn-danger btn-sm m-1 float-right"
+                                        onClick={() => this.props.deleteElementByID(element._id)}>x</button></li> */}
+                            
                             </tr>
                         )}
-                    </tbody>
                 </table>
 
             </div>

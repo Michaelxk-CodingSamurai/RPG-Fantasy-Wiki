@@ -22,7 +22,7 @@ class Profile extends Component {
 
     render() {
             return (
-                <div className="">
+                <div className="container">
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -36,11 +36,11 @@ class Profile extends Component {
                                 <td>
                                     <h4>{this.state.elements.name}</h4>
                                     <p>{this.state.elements.category}</p>
-                                    <img className="img-thumbnail fluid" src={this.state.elements.image} alt="" />
+                                    <img className="img-thumbnail" src={this.state.elements.image} alt="" />
                                 </td>                        
                                 {this.state.elements.subcategory && this.state.elements.subcategory.map((object) => {
                                         return (
-                                            <tr key ={object.a}>
+                                            <tr className='' key ={object.a}>
                                                 <td>{object.a} :</td>
                                                 <td>{object.b}</td>
                                             </tr>

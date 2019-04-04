@@ -14,11 +14,7 @@ class Creator extends Component {
 
 
     add = () => {
-
-     
         let newCategory = [...this.state.subcategory, {a: this.state.a, b: this.state.b}]
-        console.log('derp')
-    
 
         this.setState({
             subcategory: newCategory,
@@ -48,7 +44,7 @@ class Creator extends Component {
             <div className="form-group">
 
                 <form onSubmit={(e) => this.elementCreate(e)}>
-                    <div className="shadow-lg p-3 mb-5 bg-white rounded">
+                    <div className="container-fluid shadow-lg p-3 mb-5 bg-white rounded">
                     <select className="selectBox" value={this.state.category}
                     onChange={(e)=> this.setState({category: e.target.value})}>                    
                         <option>select</option>
@@ -60,19 +56,25 @@ class Creator extends Component {
                     
                     <div className="inputBox">
                     <span>Name:</span>
-                    <input id="one" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} size="40" type="text" placeholder="..."/>
+                    <input className="one" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} size="40" type="text" placeholder="..."/>
                     </div>
                    
                     <div className="inputBox">
                     <span>Image:</span>                
-                    <input  id="three" value={this.state.img} onChange={(e) => this.setState({ img: e.target.value })} size="40" type="text" placeholder="image url..."/>
+                    <input  className="one" value={this.state.img} onChange={(e) => this.setState({ img: e.target.value })} size="40" type="text" placeholder="image url..."/>
                     </div>  
 
                     <div className="attrBox">
-                    <span>Attributes:</span>
-                    <input  id="two" value={this.state.a} onChange={(e) => this.setState({ a: e.target.value })} size="40" type="text" placeholder=""/>
-                    <span id="colon">:</span>
-                    <input  value={this.state.b} onChange={(e) => this.setState({ b: e.target.value })} size="40" type="text" placeholder=""/>
+                        <span>Attributes:</span>
+                        <input  className="one" value={this.state.a} onChange={(e) => this.setState({ a: e.target.value })} size="40" type="text" placeholder=""/>
+                        <span id="colon">:</span>
+                        <input  value={this.state.b} onChange={(e) => this.setState({ b: e.target.value })} size="40" type="text" placeholder=""/>
+                        <div className="one" onClick={this.add} className="btn btn-light"> add</div>
+                        {this.state.subcategory.map((obj) => 
+                            <div>
+                                <td>{obj.a}</td><td>{obj.b}</td>
+                            </div>                            
+                            )}
                     </div>
                   
 

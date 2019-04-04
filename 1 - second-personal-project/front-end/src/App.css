@@ -1,13 +1,6 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 .img-thumbnail {
 max-width:700px;
 }
-
 .inputBox {
 
     display: block;
@@ -16,17 +9,13 @@ max-width:700px;
     /* margin-right: 9.5%; */
     /* text-align: center; */
 }
-
 #colon {
     padding: 0 1%;
     font-size: 20px;
 }
-
 .one {
     margin-left: 1%;
 }
-
-
 #btn {
    /* text-align: center; */
    padding-bottom: 1%;
@@ -43,7 +32,7 @@ max-width:700px;
 #subcats {
     border-style: inset;
     border-width: 3px;
-    width: 53.5%;
+    width: 50%;
 }
 .listnostyle {
     list-style: none;
@@ -53,4 +42,13 @@ max-width:700px;
 #addbtn {
 margin-left: 15px;
 }
+.navbar {
 
+}
+.updateBtn {
+    position: relative;
+    }
+    .updateBtn p {
+        position: absolute;
+        bottom: 0;
+        }

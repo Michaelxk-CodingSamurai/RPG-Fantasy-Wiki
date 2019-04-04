@@ -10,6 +10,7 @@ import Location from './components/categories/Location'
 import Item from './components/categories/Item'
 import Ability from './components/categories/Ability'
 import Profile from './components/Profile';
+import UpdateForm from './components/UpdateForm'
 
 class App extends Component {
 
@@ -63,7 +64,8 @@ class App extends Component {
           <Route path='/locations' render={() => <Location elements={this.state.elements} />} />
           <Route path='/items' render={() => <Item elements={this.state.elements} />} />
           <Route path='/abilities' render={() => <Ability elements={this.state.elements} />} />
-          <Route path='/profile/:id' render={(renderProps) => <Profile {...renderProps} />} />
+          <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} />} />
+          <Route path='/profile/:id/edit' render={(renderProps) => <UpdateForm {...renderProps} />} />
         </Switch>
       </div>
     );

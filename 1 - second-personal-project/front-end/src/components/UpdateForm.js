@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class Profile extends Component {
+class UpdateForm extends Component {
     state = {
         elements: [],
-        editing: false,
+        editing: true,
     }
 
     componentDidMount() {
@@ -22,31 +22,31 @@ class Profile extends Component {
 
     render() {
             return (
-                <div className="">
+                <div className="container">
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>Name </th>
-                                <th>Attributes<button className='float-right'>edit</button></th>
+                                <th>Attributes</th>
                             </tr>
                         </thead>
     
                         <tbody>
                             <tr>
                                 <td>
-                                    <h4>{this.state.elements.name}</h4>
-                                    <p>{this.state.elements.category}</p>
-                                    <img className="img-thumbnail fluid" src={this.state.elements.image} alt="" />
+                                    <h4><input type="text" value={this.state.elements.name}/></h4>
+                                    <p><input type="text" value={this.state.elements.category}/></p>
+                                    <input type="text" value={this.state.elements.image} alt="" size="60" />
+                                    <div className='updateBtn'><button >Update</button></div>
                                 </td>                        
                                 {this.state.elements.subcategory && this.state.elements.subcategory.map((object) => {
                                         return (
                                             <tr key ={object.a}>
-                                                <td>{object.a} :</td>
-                                                <td>{object.b}</td>
+                                                <td><input type="text" value={object.a} /> :</td>
+                                                <td><input type="text" value={object.b}/></td>
                                             </tr>
                                         )
                                     })}
-    
                             </tr>
                         </tbody>
                     </table>
@@ -55,5 +55,4 @@ class Profile extends Component {
     }
 } 
 
-
-export default Profile;
+export default UpdateForm;

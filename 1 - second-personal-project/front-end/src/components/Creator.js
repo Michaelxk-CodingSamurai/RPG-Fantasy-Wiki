@@ -38,7 +38,6 @@ class Creator extends Component {
         })
     }
 
-
     render() {
         return (
             <div className="form-group">

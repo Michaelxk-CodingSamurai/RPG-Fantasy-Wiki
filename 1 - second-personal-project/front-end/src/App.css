@@ -53,6 +53,7 @@ margin-left: 15px;
 .updateBtn {
     position: relative;
     }
+    
     .updateBtn p {
         position: absolute;
         bottom: 0;
@@ -67,8 +68,8 @@ margin-left: 15px;
 }
 
 .imgThumb {
-    max-width: 55%;
-    max-height: 10%;
+    max-width: 39%;
+    max-height: 15%;
     margin: 0%;
 }
 
@@ -90,3 +91,31 @@ margin-left: 15px;
     max-height: 600px;
     margin: 0%;
 }
+body { 
+
+    font-family: 'MedievalSharp', cursive;
+    background: url("./components/deathAxe.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+h1 {
+
+   margin: 5% 0;
+   
+
+}
+
+.btn-dark {
+
+    padding-top: 5%;
+
+}
+
+.table {
+    background-color: rgba(255, 255, 255, 0.65)
+}
+
+ 

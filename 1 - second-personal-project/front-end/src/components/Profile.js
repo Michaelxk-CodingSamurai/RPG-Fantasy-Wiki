@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 
 class Profile extends Component {
     state = {
-        elements: [],
+        // elements: [],
         editing: false,
         deleted: false,
     }
@@ -11,11 +11,14 @@ class Profile extends Component {
     componentDidMount() {
         this.props.getElementByID(this.props.match.params.id)
     }
+    
 
+   
     render() {
-     
+        console.log(this.props.elements)
+        console.log(this.props.elements._id)
         if (this.state.deleted === true) { return <Redirect to="/" /> }
-        if (this.state.editing === true) { return <Redirect to={`/profile/${this.state.elements._id}/edit `}/> }
+        if (this.state.editing === true) { return <Redirect to={`/profile/${this.props.elements._id}/edit `}/> }
 
             return (
                 <div className="container">

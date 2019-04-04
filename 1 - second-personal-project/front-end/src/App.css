@@ -11,8 +11,8 @@ max-width:700px;
 .inputBox {
 
     display: block;
-    margin: 2% auto;
-    text-align: center;
+    margin: 2% 0;
+  
 }
 
 #colon {
@@ -34,10 +34,12 @@ max-width:700px;
 }
 
 .attrBox {
-    margin-left: 26%;
+  
+    
     padding: 2%;
     border-style: outset;
     border-width: 3px;
+    width: 55%;
 }
 
 

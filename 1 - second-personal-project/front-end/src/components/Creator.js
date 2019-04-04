@@ -34,6 +34,7 @@ class Creator extends Component {
             img: '',
             a: '',
             b: '',
+            subcategory: []
            
         })
     }
@@ -72,7 +73,7 @@ class Creator extends Component {
                         <div className="one" onClick={this.add} className="btn btn-light"> add</div>
                         {this.state.subcategory.map((obj) => 
                             <div>
-                                <td>{obj.a}</td><td>{obj.b}</td>
+                                <td>{obj.a} : {obj.b}</td>
                             </div>                            
                             )}
                     </div>

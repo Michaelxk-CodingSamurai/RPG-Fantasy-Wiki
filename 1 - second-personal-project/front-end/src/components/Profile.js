@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
+import { Redirect } from 'react-router-dom'
 
 class Profile extends Component {
     state = {
         elements: [],
         editing: false,
+        deleted: false,
     }
 
     componentDidMount() {
@@ -13,13 +15,21 @@ class Profile extends Component {
 
 
     render() {
+
+        if (this.state.deleted === true) { return <Redirect to="/" /> }
+
             return (
                 <div className="container">
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>Name </th>
-                                <th>Attributes<button className='float-right'>edit</button></th>
+                                <th>Attributes
+                                    <button className='float-right'>edit</button>
+                                    <button className="btn btn-danger btn-sm m-1 float-right"
+                                        onClick={() => {this.props.deleteElementByID(this.state.elements._id); this.setState({deleted: true})} }>
+                                    X</button>
+                                </th>
                             </tr>
                         </thead>
     

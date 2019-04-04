@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Display from './components/Display'
 import Creator from './components/Creator';
@@ -13,6 +13,7 @@ import Profile from './components/Profile';
 import UpdateForm from './components/UpdateForm'
 import ShowAdventures from './adventures/ShowAdventures'
 import AdventureProfile from './adventures/AdventureProfile'
+
 
 class App extends Component {
 
@@ -27,10 +28,10 @@ class App extends Component {
   }
 
   deleteElementByID = (id) => {
+    
     axios.delete(`http://localhost:5000/elements/${id}`)
       .then(res => {
-        console.log(res.data)
-        this.getElements()
+        this.getElements();
       })
   }
 

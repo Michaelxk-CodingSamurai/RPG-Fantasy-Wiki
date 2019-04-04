@@ -15,19 +15,26 @@ class App extends Component {
 
   state = {
     elements: [],
-    selectedID: null,
   }
 
   componentDidMount() {
     this.getElements()
   }
 
+  deleteElementByID = (id) => {
+    axios.delete(`http://localhost:5000/elements/${id}`)
+      .then(res => {
+        console.log(res.data)
+        this.getElements()
+      })
+  }
+
+
   getElements = () => {
     axios.get('http://localhost:5000/elements')
       .then(res => {
         this.setState({
           elements: res.data,
-          selectedID: null,
         })
       })
   }
@@ -35,7 +42,7 @@ class App extends Component {
   createElements = (element) => {
     axios.post('http://localhost:5000/elements', element)
       .then(res => {
-          this.getElements();
+        this.getElements()
       })
   }
 
@@ -59,8 +66,9 @@ class App extends Component {
         <Navbar />
         <div id="addSpace"> 
         <Switch>
-          <Route exact path='/' render={() => <Display elements={this.state.elements} />} />
-          <Route path='/creator' render={() => <Creator createElement={this.createElements} />} />
+          <Route exact path='/' render={() => <Display 
+              elements={this.state.elements} deleteElementByID={this.deleteElementByID}/>} />
+          <Route path='/creator' render={() => <Creator createElements={this.createElements} />} />
           <Route path='/characters' render={() => <Character elements={this.state.elements} />} />
           <Route path='/locations' render={() => <Location elements={this.state.elements} />} />
           <Route path='/items' render={() => <Item elements={this.state.elements} />} />

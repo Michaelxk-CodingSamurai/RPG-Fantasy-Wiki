@@ -20,7 +20,10 @@ class Display extends Component {
                     <tbody >
                         {this.props.elements.map((element, index) =>
                             <tr key={element._id}>
-                                <th>{index + 1}</th>
+                                <th>{index + 1}
+                                    <button className="btn btn-danger btn-sm"
+                                        onClick={() => this.props.deleteElementByID(element._id)}>x</button>
+                                </th>
                                 <td>
                                     <Link button to={`/profile/${element._id}`}><h3>{element.name}</h3></Link>
                                     <p>{element.category} </p>

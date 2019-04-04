@@ -26,7 +26,7 @@ class Creator extends Component {
     elementCreate = (e) => {
         e.preventDefault();
 
-        this.props.createElement(this.state)
+        this.props.createElements(this.state)
         this.setState({
 
             name: '',

@@ -20,6 +20,8 @@ class App extends Component {
   state = {
     elements: [],
     adventures: [],
+    profile: '',
+    adventureProfile: '',
   }
 
   componentDidMount() {
@@ -58,7 +60,7 @@ class App extends Component {
     axios.get(`http://localhost:5000/adventures/${id}`)
       .then(res => {
         this.setState({
-          adventures: res.data
+          adventureProfile: res.data
         })
       })
   }
@@ -67,7 +69,7 @@ class App extends Component {
     axios.get(`http://localhost:5000/elements/${id}`)
         .then(res => {
             this.setState({
-                elements: res.data
+                profile: res.data
             })
         })
 }
@@ -88,21 +90,20 @@ class App extends Component {
         <Navbar />
         <div id="addSpace">
           <Switch>
-            <Route exact path='/' render={() => <Display
-              elements={this.state.elements} deleteElementByID={this.deleteElementByID} />} />
+            <Route exact path='/' render={() => <Display elements={this.state.elements} getElements={this.getElements} />} />
             <Route path='/creator' render={() => <Creator createElements={this.createElements} />} />
             <Route path='/characters' render={() => <Character elements={this.state.elements} />} />
             <Route path='/locations' render={() => <Location elements={this.state.elements} />} />
             <Route path='/items' render={() => <Item elements={this.state.elements} />} />
             <Route path='/abilities' render={() => <Ability elements={this.state.elements} />} />
+            <Route exact path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
 
-            <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} getElementByID={this.getElementByID} elements={this.state.elements}/>} />
-            <Route path='/profile/:id/edit' render={(renderProps) => <UpdateForm {...renderProps} getElementByID={this.getElementByID} elements={this.state.elements}/>} />
-            
-            <Route path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
-            <Route exact path='/adventureprofile/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID} adventures={this.state.adventures}
-            
-            
+            <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} getElementByID={this.getElementByID} elements={this.state.profile}/>} />
+            <Route path='/profile/:id/edit' render={(renderProps) => <UpdateForm {...renderProps} getElementByID={this.getElementByID} elements={this.state.profile}/>} />
+
+           
+            <Route path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID} adventures={this.state.adventureProfile}
+                        
             />} />
           </Switch>
         </div>

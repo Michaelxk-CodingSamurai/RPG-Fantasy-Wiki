@@ -13,7 +13,7 @@ class Profile extends Component {
     }
 
     render() {
-       console.log(this.state)
+     
         if (this.state.deleted === true) { return <Redirect to="/" /> }
         if (this.state.editing === true) { return <Redirect to={`/profile/${this.state.elements._id}/edit `}/> }
 

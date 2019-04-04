@@ -7,17 +7,6 @@ class AdventureProfile extends Component {
         editing: false,
     }
 
-    // componentDidMount() {
-    //     this.getAdventureByID(this.props.match.params.id)
-    // }
-    // getAdventureByID = (id) => {
-    //     axios.get(`http://localhost:5000/adventures/${id}`)
-    //         .then(res => {
-    //             this.setState({
-    //                 adventures: res.data
-    //             })
-    //         })
-    // }
 
 
     componentDidMount() {
@@ -30,10 +19,10 @@ class AdventureProfile extends Component {
             <div className="container">
                 <table className="table table-striped table-bordered">
                     <thead>
-                        <img src={this.state.elements.image} alt=""/>
+                        <img src={this.state.adventures.image} alt=""/>
                     </thead>
                     <tbody>
-
+                        <th>{this.state.adventures.name}</th>
 
                         
                     </tbody>

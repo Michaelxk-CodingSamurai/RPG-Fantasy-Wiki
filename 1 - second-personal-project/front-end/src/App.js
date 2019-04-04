@@ -95,10 +95,12 @@ class App extends Component {
             <Route path='/locations' render={() => <Location elements={this.state.elements} />} />
             <Route path='/items' render={() => <Item elements={this.state.elements} />} />
             <Route path='/abilities' render={() => <Ability elements={this.state.elements} />} />
+
             <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} getElementByID={this.getElementByID}/>} />
             <Route path='/profile/:id/edit' render={(renderProps) => <UpdateForm {...renderProps} />} />
+
             <Route path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
-            <Route path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID}
+            <Route exact path='/adventureprofile/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID}
             
             
             />} />

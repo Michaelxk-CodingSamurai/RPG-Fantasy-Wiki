@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import '../App.css'
 
 class UpdateForm extends Component {
@@ -12,16 +11,17 @@ class UpdateForm extends Component {
         this.getElementByID(this.props.match.params.id)
     }
 
-    updateFields = (e) => {
-        console.log(this.state.elements)
-        // let newElements = [...this.state.elements]
+    // updateFields = (e) => {
+    //     console.log(this.state.elements)
+    //     let newElements = [...this.state.elements]
 
-        // console.log(newElements)
-        // newElements.category: e
-        // this.setState({ category: e })
-    }
+    //     console.log(newElements)
+    //     newElements.category: e
+    //     this.setState({ category: e })
+    // }
 
     render() {
+        console.log(this.props.elements)
         return (
             <div className="container">
                 <table className="table table-striped table-bordered">
@@ -35,7 +35,7 @@ class UpdateForm extends Component {
                     <tbody>
                         <tr>
                             <td>
-                                <h4><input onChange={(e) => this.updateFields(e)} type="text" value={this.state.elements.name} /></h4>
+                                <h4><input onChange={(e) => this.updateFields(e)} type="text" value={this.props.elements.name} /></h4>
 
                                 <div className='dropdown'>
                                     <select className="btn btn-secondary dropdown-toggle two" value={this.state.category}
@@ -49,7 +49,7 @@ class UpdateForm extends Component {
                                 </div> 
 
                                 
-                                <input onChange={(e) => this.updateFields(e)} type="text" value={this.state.elements.image} alt="" size="60" />
+                                <input onChange={(e) => this.updateFields(e)} type="text" value={this.props.elements.image} alt="" size="60" />
                                 <div className='updateBtn'><button >Update</button></div>
                             </td>
                             {this.state.elements.subcategory && this.state.elements.subcategory.map((object) => {

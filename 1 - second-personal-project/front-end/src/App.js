@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Display from './components/Display'
 import Creator from './components/Creator';
@@ -95,7 +95,7 @@ class App extends Component {
             <Route path='/locations' render={() => <Location elements={this.state.elements} />} />
             <Route path='/items' render={() => <Item elements={this.state.elements} />} />
             <Route path='/abilities' render={() => <Ability elements={this.state.elements} />} />
-            <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} getElementByID={this.getElementByID} elements={this.state.profile}/>} />
+            <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} deleteElementByID={this.deleteElementByID} getElementByID={this.getElementByID} elements={this.state.profile}/>} />
             <Route path='/profile/:id/edit' render={(renderProps) => <UpdateForm {...renderProps} getElementByID={this.getElementByID} elements={this.state.profile}/>} />
             <Route path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
             <Route path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID}

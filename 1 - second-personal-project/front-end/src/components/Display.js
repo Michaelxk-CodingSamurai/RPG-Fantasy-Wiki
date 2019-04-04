@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import '../App.css';
+
 
 class Display extends Component {
     state = {}
 
-    componentDidMount() {
-        this.props.getElements()
-    }
-
     render() {
-        console.log(this.props.elements)
+
         return (
             <div className="container bg-white">
 
@@ -34,10 +30,10 @@ class Display extends Component {
                                     <img className="img-thumbnail imgThumb" src={element.image} alt="" />
                                 </td>
                                 <td>
-                                    <Link className="" button to={`/profile/${element._id}`}><h1 classname=''>{element.name}</h1></Link>
+                                    <Link button to={`/profile/${element._id}`}><h1>{element.name}</h1></Link>
                                 </td>
                                 <td>
-                                    <h5 className="">{element.category} </h5>
+                                    <h5>{element.category} </h5>
                                 </td>     
                             
                             </tr>

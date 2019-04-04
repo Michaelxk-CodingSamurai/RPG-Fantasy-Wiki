@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 
 class Profile extends Component {
     state = {
@@ -8,17 +8,9 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        this.getElementByID(this.props.match.params.id)
+        this.props.getElementByID(this.props.match.params.id)
     }
 
-    getElementByID = (id) => {
-        axios.get(`http://localhost:5000/elements/${id}`)
-            .then(res => {
-                this.setState({
-                    elements: res.data
-                })
-            })
-    }
 
     render() {
             return (

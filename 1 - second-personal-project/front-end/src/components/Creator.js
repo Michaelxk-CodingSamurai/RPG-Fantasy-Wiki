@@ -22,7 +22,7 @@ class Creator extends Component {
 
         this.setState({
             subcategory: newCategory,
-            // a: '',
+            a: '',
             b: ''
         })
     }
@@ -38,6 +38,7 @@ class Creator extends Component {
             img: '',
             a: '',
             b: '',
+           
         })
     }
 

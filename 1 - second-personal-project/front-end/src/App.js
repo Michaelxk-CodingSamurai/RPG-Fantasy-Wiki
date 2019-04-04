@@ -46,6 +46,7 @@ class App extends Component {
       image: state.img,
       subcategory: state.subcategory
     }
+      console.log(newData)
       this.createElements(newData)
   }
 

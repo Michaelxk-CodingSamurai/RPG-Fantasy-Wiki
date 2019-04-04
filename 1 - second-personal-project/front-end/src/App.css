@@ -1,8 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+
 
 .img-thumbnail {
 max-width:700px;
@@ -42,16 +38,31 @@ max-width:700px;
 }
 
 #subcats {
+    
+    margin-top: 1%;
     border-style: inset;
     border-width: 3px;
-    width: 53.5%;
+    width: 51.5%;
 }
 .listnostyle {
     list-style: none;
     font-size: 1.5em;
-    margin: 2%;
+    margin: 1%;
 }
 #addbtn {
 margin-left: 15px;
+}
+
+.navbar {
+
+  position: fixed;
+
+
+}
+
+#addSpace {
+
+    padding-top: 6%;
+
 }
 

@@ -32,9 +32,8 @@ class Display extends Component {
                                 <td>
                                     <Link button to={`/profile/${element._id}`}><h1>{element.name}</h1></Link>
                                 <td className='my-3'>
-                                    <Link className="" button to={`/profile/${element._id}`}><h1 classname=''>{element.name}</h1></Link>
+                                    <Link  button to={`/profile/${element._id}`}><h1 >{element.name}</h1></Link>
                                 </td>
-                                <td>
                                     <h5>{element.category} </h5>
                                 </td>     
                             

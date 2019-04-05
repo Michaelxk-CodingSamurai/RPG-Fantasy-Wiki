@@ -31,7 +31,7 @@ class Display extends Component {
                                 </td>
                                
                                 <td className='my-3'>
-                                    <Link to={`/profile/${element._id}`}><h1>{element.name}</h1></Link>
+                                    <a className='text-dark' href={`/profile/${element._id}`}><h1>{element.name}</h1></a>
                                 </td>
                                     <h4 className='my-3'>{element.category} </h4>
                                    

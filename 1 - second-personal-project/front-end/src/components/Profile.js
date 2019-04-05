@@ -20,7 +20,7 @@ class Profile extends Component {
 
             return (
                 <div className="container">
-                    <table className="table table-striped table-bordered">
+                    <table className="table trans table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>Name </th>

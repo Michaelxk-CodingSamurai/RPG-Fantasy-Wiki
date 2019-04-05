@@ -11,7 +11,7 @@ class ShowAdventures extends Component {
     render() {
         return (
             <div className="container">
-                <table className="table container-fluid shadow-lg">
+                <table className="table trans container-fluid shadow-lg">
                     <tr className="shadow-lg table-striped table-bordered">
                         <th>#</th>
                         <th>Name</th>

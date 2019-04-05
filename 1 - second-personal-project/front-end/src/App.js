@@ -14,6 +14,7 @@ import UpdateForm from './components/UpdateForm'
 import ShowAdventures from './adventures/ShowAdventures'
 import AdventureProfile from './adventures/AdventureProfile'
 import AddElementToAdventure from './adventures/AddElementToAdventure'
+import AdventureForm from './adventures/AdventureForm'
 
 
 class App extends Component {
@@ -126,9 +127,10 @@ class App extends Component {
             <Route path='/abilities' render={() => <Ability elements={this.state.elements} />} />
             <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} deleteElementByID={this.deleteElementByID} getElementByID={this.getElementByID} elements={this.state.profile} />} />
             <Route path='/profile/edit/:id' render={(renderProps) => <UpdateForm {...renderProps} updateElementByID={this.updateElementByID} getElementByID={this.getElementByID} elements={this.state.profile} />} />
+            
             <Route exact path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
+            <Route path='/adventures/create' render={() => <AdventureForm elements={this.state.elements} />} />
             <Route exact path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID} adventures={this.state.adventureProfile} />} />
-
             
             <Route exact path='/adventures/addelements/:id' render={(renderProps) =>
               <AddElementToAdventure {...renderProps} elements={this.state.elements} adventures={this.state.adventureProfile} getAdventureByID={this.getAdventureByID}

@@ -8,11 +8,11 @@ class Display extends Component {
     render() {
 
         return (
-            <div className="container bg-light compendium">
+            <div className="container compendium">
                 
                 <table className="container-fluid">
 
-                        <tr className='table'>
+                        <tr className='table shadow-lg text-lg'>
                             <td className="tableHeaders">#</td>
                             <td className="tableHeaders">Image</td>
                             <td className="tableHeaders">Name</td>
@@ -21,7 +21,7 @@ class Display extends Component {
                         
                         {this.props.elements.map((element, index) =>
                             
-                            <tr className='tdNoPad' key={element._id}>
+                            <tr className='tdNoPad shadow-lg' key={element._id}>
 
                                 <td>
                                     <h4 className='text-center'>{index + 1}</h4>

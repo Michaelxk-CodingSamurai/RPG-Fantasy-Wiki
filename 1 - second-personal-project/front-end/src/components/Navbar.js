@@ -31,7 +31,7 @@ class Navbar extends Component {
         return (
 
             <nav className="container-fluid navbar navbar-expand-lg navbar-dark bg-dark">
-                <header className="navbar-brand" href="/">Adventure Compendium</header>
+                <a className="navbar-brand nav-link" href="/"> <h2>Adventure Compendium</h2> </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -39,13 +39,10 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
 
-                        <li className="nav-item">
-                            <Link to="/" className="nav-link" >Compendium </Link>
-                        </li>
 
                         <li className="nav-item dropdown">
-
-                            <select className='btn btn-dark nav-link dropdown-toggle' href="#" id="navbarDropdown" onChange={(e) => this.setFilter(e.target.value)} >
+                
+                            <select className='btn btn-dark nav-link dropdown-toggle btn-lg' href="#" id="navbarDropdown" onChange={(e) => this.setFilter(e.target.value)} >
                                 <option>Filter by Category</option>
                                 <option>Characters</option>
                                 <option>Locations</option>
@@ -55,9 +52,12 @@ class Navbar extends Component {
                         </li>
 
                         <li className="nav-item">
-                            <Link to="/creator" className="nav-link" >Create Content</Link>
+                            <Link to="/creator" className="nav-link" > <h4>Create Content</h4> </Link>
                         </li>
                         
+                        <li className="nav-item">
+                            <Link to="/Adventures" className="nav-link" > <h4>Adventures</h4> </Link>
+                        </li>
                     </ul>
 
                     <form className="form-inline my-2 my-lg-0">

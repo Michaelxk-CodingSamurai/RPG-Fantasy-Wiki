@@ -2,25 +2,22 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 class AddElementToAdventure extends Component {
-    state = {}
-
-
-    // addElementToAdventure = (id, newElement) => {
-    //     let adventureElement = [...this.props.elements]
-    //     newElement = adventureElement.find(x => x._id === id)
-    //     console.log(newElement)
-
-    //     let elementToAdventure = [...this.props.adventures.elements, newElement]
-
-    //     this.setState({
-    //         adventures: elementToAdventure
-    //     })
-    // }
+    state = {
+        adventureProfile: this.props.adventures
+    }
 
 
     componentDidMount() {
+        console.log(this.props)
         this.props.getAdventureByID(this.props.match.params.id)
+        // if(this.props.adventures.length > 0) {
+        //     this.setState({
+        //         adventureProfile: this.props.adventures
+        //     })
+        // }
     }
+
+    
 
 
     render() {
@@ -66,9 +63,7 @@ class AddElementToAdventure extends Component {
                 <button><h3>Add These Elements</h3></button>
 
             </div>
-
-
-
+            
         );
     }
 }

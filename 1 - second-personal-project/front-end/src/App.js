@@ -22,7 +22,7 @@ class App extends Component {
     elements: [],
     adventures: [],
     profile: [],
-    adventureProfile: [],
+    adventureProfile: {}
   }
 
   componentDidMount() {
@@ -59,8 +59,11 @@ class App extends Component {
   }
 
   getAdventureByID = (id) => {
+    console.log('hitting adventure by id')
     axios.get(`http://localhost:5000/adventures/${id}`)
       .then(res => {
+        console.log('hitting hello')
+
         this.setState({
           adventureProfile: res.data
         })
@@ -94,22 +97,16 @@ class App extends Component {
   }
 
   addElementToAdventure = (id, index) => {
-    let adventureElement = [...this.state.elements]
-    let adventureProfile = [...this.state.adventures]
+    let adventureElement = [...this.state.elements];
+    let newElement = adventureElement.find(x => x._id === id);
+    let newAdventures = [...this.state.adventures];
+    let adventureIndex = newAdventures.findIndex(x => x._id === index);
 
-    let newElement = adventureElement.find(x => x._id === id)
-    let adventureIndex = adventureProfile.findIndex(x => x._id === index)
-
-    console.log(newElement)
-    console.log(adventureIndex)
-
+    newAdventures[adventureIndex].elements.push(newElement);
+    
     this.setState({
-
+        adventures: newAdventures
     })
-    // let elementToAdventure = [...this.state.adventures, newElement]
-    // this.setState({
-    //   adventureProfile: elementToAdventure
-    // })
   }
 
 
@@ -119,7 +116,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-     
+        <div id="addSpace">
           <Switch>
             <Route exact path='/' render={() => <Display elements={this.state.elements} getElements={this.getElements} />} />
             <Route path='/creator' render={() => <Creator createElements={this.createElements} />} />
@@ -132,16 +129,12 @@ class App extends Component {
             <Route exact path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
             <Route exact path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID} adventures={this.state.adventureProfile} />} />
 
+            
             <Route exact path='/adventures/addelements/:id' render={(renderProps) =>
               <AddElementToAdventure {...renderProps} elements={this.state.elements} adventures={this.state.adventureProfile} getAdventureByID={this.getAdventureByID}
                 addElementToAdventure={this.addElementToAdventure} />} />
-
-
-
-
-
           </Switch>
-   
+        </div>
       </div>
     );
   }

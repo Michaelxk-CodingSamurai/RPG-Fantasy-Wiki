@@ -133,7 +133,7 @@ h4 {
    
 
 }
-.table {
+.trans {
     background-color: rgba(255, 255, 255, 0.65);
 }
 
@@ -158,7 +158,7 @@ h4 {
 
 .compendium {
 
-background-color: red;
+border-bottom: white;
 
 }
 

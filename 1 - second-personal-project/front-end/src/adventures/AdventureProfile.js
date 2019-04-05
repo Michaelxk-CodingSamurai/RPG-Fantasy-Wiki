@@ -17,7 +17,7 @@ class AdventureProfile extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container trans">
                 {this.props.adventures &&
 
                 <table className="table table-striped table-bordered">

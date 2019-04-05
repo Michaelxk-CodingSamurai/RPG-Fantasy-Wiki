@@ -45,7 +45,7 @@ class Navbar extends Component {
 
                         <li className="nav-item dropdown">
 
-                            <select className='btn btn-dark nav-link dropdown-toggle' href="#" id="navbarDropdown" onChange={(e) => this.setFilter(e.target.value)} >
+                            <select className='btn btn-dark nav-link dropdown-toggle filterByCat' href="#" id="navbarDropdown" onChange={(e) => this.setFilter(e.target.value)} >
                                 <option>Filter by Category</option>
                                 <option>Characters</option>
                                 <option>Locations</option>

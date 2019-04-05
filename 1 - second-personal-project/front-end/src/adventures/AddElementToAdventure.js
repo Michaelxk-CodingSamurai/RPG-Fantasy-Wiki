@@ -8,7 +8,7 @@ class AddElementToAdventure extends Component {
 
 
     addElementToAdventure = (newElement) => {
-        let newAdventure = [...this.state.adventures.elements, newElement]
+        let newAdventure = [...this.state.adventures, newElement]
         this.setState({
             adventures: newAdventure
         })

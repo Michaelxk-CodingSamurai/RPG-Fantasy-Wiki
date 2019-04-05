@@ -27,7 +27,7 @@ class Display extends Component {
                                     <h4 className='text-center'>{index + 1}</h4>
                                 </td>
                                 <td className=''>
-                                    <img className="img-thumbnail imgThumb" src={element.image} alt="" />
+                                    <img className="imgthumbs" src={element.image} alt="" />
                                 </td>
                                
                                 <td className='my-3'>

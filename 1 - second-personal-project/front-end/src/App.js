@@ -15,6 +15,7 @@ import ShowAdventures from './adventures/ShowAdventures'
 import AdventureProfile from './adventures/AdventureProfile'
 import AddElementToAdventure from './adventures/AddElementToAdventure'
 import AdventureForm from './adventures/AdventureForm'
+import SearchResults from './components/SearchResults'
 
 
 class App extends Component {
@@ -23,7 +24,8 @@ class App extends Component {
     elements: [],
     adventures: [],
     profile: [],
-    adventureProfile: {}
+    adventureProfile: {},
+    search: '',
   }
 
   componentDidMount() {
@@ -110,13 +112,17 @@ class App extends Component {
     })
   }
 
-
+updateSearch = (e) => {
+  this.setState({
+    search: e
+  })
+}
 
 
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar updateSearch={this.updateSearch}/>
         <div id="addSpace">
           <Switch>
             <Route exact path='/' render={() => <Display elements={this.state.elements} getElements={this.getElements} />} />
@@ -127,7 +133,8 @@ class App extends Component {
             <Route path='/abilities' render={() => <Ability elements={this.state.elements} />} />
             <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} deleteElementByID={this.deleteElementByID} getElementByID={this.getElementByID} elements={this.state.profile} />} />
             <Route path='/profile/edit/:id' render={(renderProps) => <UpdateForm {...renderProps} updateElementByID={this.updateElementByID} getElementByID={this.getElementByID} elements={this.state.profile} />} />
-            
+            <Route path='/results' render={() => <SearchResults search={this.state.search} elements={this.state.elements} />} />
+
             <Route exact path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
             <Route path='/adventures/create' render={() => <AdventureForm elements={this.state.elements} />} />
             <Route exact path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID} adventures={this.state.adventureProfile} />} />

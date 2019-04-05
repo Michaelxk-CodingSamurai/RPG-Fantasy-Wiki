@@ -10,7 +10,7 @@ class Display extends Component {
         return (
             <div className="container  trans">
                 
-                <table className="container-fluid  compendium">
+                <table className="container-fluid ">
 
                         <tr className='table shadow-lg'>
                             <td className="tableHeaders">#</td>
@@ -31,7 +31,7 @@ class Display extends Component {
                                 </td>
                                
                                 <td className='my-3'>
-                                    <Link  button to={`/profile/${element._id}`}><h1>{element.name}</h1></Link>
+                                    <Link to={`/profile/${element._id}`}><h1>{element.name}</h1></Link>
                                 </td>
                                     <h4 className='my-3'>{element.category} </h4>
                                    

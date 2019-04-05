@@ -13,6 +13,7 @@ import Profile from './components/Profile';
 import UpdateForm from './components/UpdateForm'
 import ShowAdventures from './adventures/ShowAdventures'
 import AdventureProfile from './adventures/AdventureProfile'
+import AddElementToAdventure from './adventures/AddElementToAdventure'
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
     elements: [],
     adventures: [],
     profile: []
+    adventureProfile: '',
   }
 
   componentDidMount() {
@@ -61,7 +63,7 @@ class App extends Component {
     axios.get(`http://localhost:5000/adventures/${id}`)
       .then(res => {
         this.setState({
-          adventures: res.data
+          adventureProfile: res.data
         })
       })
   }

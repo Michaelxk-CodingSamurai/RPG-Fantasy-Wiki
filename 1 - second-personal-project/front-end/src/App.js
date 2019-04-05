@@ -21,8 +21,8 @@ class App extends Component {
   state = {
     elements: [],
     adventures: [],
-    profile: '',
-    adventureProfile: '',
+    profile: [],
+    adventureProfile: [],
   }
 
   componentDidMount() {
@@ -76,14 +76,33 @@ class App extends Component {
         })
 }
 
-
-
   createElements = (element) => {
     axios.post('http://localhost:5000/elements', element)
       .then(res => {
         this.getElements()
       })
   }
+
+  addElementToAdventure = (id, index) => {
+    let adventureElement = [...this.state.elements]
+    let adventureProfile = [...this.state.adventures]
+
+    let newElement = adventureElement.find(x => x._id === id)
+    let adventureIndex = adventureProfile.findIndex(x => x._id === index)
+
+    console.log(newElement)
+    console.log(adventureIndex)
+
+    this.setState({
+
+    })
+    // let elementToAdventure = [...this.state.adventures, newElement]
+    // this.setState({
+    //   adventureProfile: elementToAdventure
+    // })
+  }
+
+
 
 
   render() {
@@ -108,8 +127,8 @@ class App extends Component {
             <Route exact path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID} adventures={this.state.adventureProfile} />} />
             
             <Route exact path='/adventures/addelements/:id' render={(renderProps) => 
-                  <AddElementToAdventure {...renderProps} elements={this.state.elements}
-                  adventures={this.state.adventureProfile} getAdventureByID={this.getAdventureByID} />}/>
+                  <AddElementToAdventure {...renderProps} elements={this.state.elements} adventures={this.state.adventureProfile} getAdventureByID={this.getAdventureByID} 
+                    addElementToAdventure={this.addElementToAdventure} />}/>
 
           
           </Switch>

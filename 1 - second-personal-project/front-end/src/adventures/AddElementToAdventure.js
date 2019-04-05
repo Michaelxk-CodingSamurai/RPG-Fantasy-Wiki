@@ -5,15 +5,17 @@ class AddElementToAdventure extends Component {
     state = {}
 
 
-    addElementToAdventure = (newElement) => {
-        let adventureElement = [...this.props.elements]
-        
-        console.log(adventureElement)
-        // let newAdventure = [...adventureElement.elements, newElement]
-        // this.setState({
-        //     adventures: newAdventure
-        // })
-    }
+    // addElementToAdventure = (id, newElement) => {
+    //     let adventureElement = [...this.props.elements]
+    //     newElement = adventureElement.find(x => x._id === id)
+    //     console.log(newElement)
+
+    //     let elementToAdventure = [...this.props.adventures.elements, newElement]
+
+    //     this.setState({
+    //         adventures: elementToAdventure
+    //     })
+    // }
 
 
     componentDidMount() {
@@ -25,6 +27,7 @@ class AddElementToAdventure extends Component {
         return (
             <div className="container bg-white">
                 <h1>{this.props.adventures.name}</h1>
+                <img src={this.props.adventures.image} alt="" className="img-thumbnail"/>
 
                 <table className="container-fluid shadow-lg">
 
@@ -45,7 +48,7 @@ class AddElementToAdventure extends Component {
                                 <td className=''>
                                     <img className="img-thumbnail imgThumb" src={element.image} alt="" />
                                     <input type="button"
-                                        onClick={() => { this.addElementToAdventure(element) }} value="submit" />
+                                        onClick={() => { this.props.addElementToAdventure(element._id, this.props.match.params.id) }} value="submit" />
 
 
                                 </td>

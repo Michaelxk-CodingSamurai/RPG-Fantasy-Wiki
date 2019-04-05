@@ -86,6 +86,11 @@ margin-left: 15px;
     text-align: center;
 }
 
+.img-adventure {
+    max-width: 100%;
+    max-height: 1000px;
+    margin: 0%;
+}
 body { 
 
     font-family: 'MedievalSharp', cursive;
@@ -112,34 +117,7 @@ h1 {
     background-color: rgba(255, 255, 255, 0.65);
 }
 
-.table {
-
-
-    background-color: rgba(255,255,255,0.65);
-
-
+.element-check-box {
+    width:30px;
+    height:30px;
 }
-
-.shadow-lg {
-
-    font-size: 125%;
-    margin-left: 1%;
-   
-    
-
-}
-
-h5 {
-
-    margin-top: 25%;
-
-
-}
-
-
-
-
-
-
-
- 

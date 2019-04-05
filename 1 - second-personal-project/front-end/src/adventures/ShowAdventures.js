@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class ShowAdventures extends Component {
     state = {}
@@ -10,8 +11,8 @@ class ShowAdventures extends Component {
     render() {
         return (
             <div className="container">
-                <table className="container-fluid shadow-lg">
-                    <tr className="table shadow-lg table-striped table-bordered">
+                <table className="table container-fluid shadow-lg">
+                    <tr className="shadow-lg table-striped table-bordered">
                         <th>#</th>
                         <th>Name</th>
                         <th>Description</th>
@@ -22,7 +23,9 @@ class ShowAdventures extends Component {
                             <td>{index + 1}</td>
                             <td>
                                 <img src={adventure.image} className="img-thumbnail" alt="" />
-                                <h5>{adventure.name}</h5>
+                                
+                                <Link className="" button to={`/adventures/${adventure._id}`}><h5 classname=''>{adventure.name}</h5></Link>
+     
                            
 
                             </td>

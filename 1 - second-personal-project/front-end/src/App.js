@@ -13,6 +13,7 @@ import Profile from './components/Profile';
 import UpdateForm from './components/UpdateForm'
 import ShowAdventures from './adventures/ShowAdventures'
 import AdventureProfile from './adventures/AdventureProfile'
+import AddElementToAdventure from './adventures/AddElementToAdventure'
 
 
 class App extends Component {
@@ -20,7 +21,8 @@ class App extends Component {
   state = {
     elements: [],
     adventures: [],
-    profile: ''
+    profile: '',
+    adventureProfile: '',
   }
 
   componentDidMount() {
@@ -61,7 +63,7 @@ class App extends Component {
     axios.get(`http://localhost:5000/adventures/${id}`)
       .then(res => {
         this.setState({
-          adventures: res.data
+          adventureProfile: res.data
         })
       })
   }
@@ -97,12 +99,20 @@ class App extends Component {
             <Route path='/locations' render={() => <Location elements={this.state.elements} />} />
             <Route path='/items' render={() => <Item elements={this.state.elements} />} />
             <Route path='/abilities' render={() => <Ability elements={this.state.elements} />} />
+
+           
+
             <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} deleteElementByID={this.deleteElementByID} getElementByID={this.getElementByID} elements={this.state.profile}/>} />
             <Route path='/profile/:id/edit' render={(renderProps) => <UpdateForm {...renderProps} getElementByID={this.getElementByID} elements={this.state.profile}/>} />
-            <Route path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
-            <Route path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID}
-                        
-            />} />
+
+            <Route exact path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
+            <Route exact path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID} adventures={this.state.adventureProfile} />} />
+            
+            <Route exact path='/adventures/addelements/:id' render={(renderProps) => 
+                  <AddElementToAdventure {...renderProps} elements={this.state.elements}
+                  adventures={this.state.adventureProfile} getAdventureByID={this.getAdventureByID} />}/>
+
+          
           </Switch>
         </div>
       </div>

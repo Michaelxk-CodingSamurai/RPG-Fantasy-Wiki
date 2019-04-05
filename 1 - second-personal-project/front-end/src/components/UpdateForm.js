@@ -88,7 +88,7 @@ class UpdateForm extends Component {
 
 
                                 <input onChange={(e) => this.setState({profile: {...this.state.profile, image: e.target.value} })} type="text" value={this.state.profile.image} alt="" size="60" />
-                                <div className='updateBtn' onClick = {this.submitUpdate}><button >Update</button></div>
+                                <div className='updateBtn' onClick = {this.submitUpdate}><button className="btn btn-dark btn-lg">Update</button></div>
                             </td>
                             {this.state.profile.subcategory && this.state.profile.subcategory.map((object, index) => {
                                 return (

@@ -8,9 +8,9 @@ class Display extends Component {
     render() {
 
         return (
-            <div className="container bg-light compendium">
+            <div className="container compedium trans">
                 
-                <table className="container-fluid">
+                <table className="container table-bordered">
 
                         <tr className='table'>
                             <td className="tableHeaders">#</td>

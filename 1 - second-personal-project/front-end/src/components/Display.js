@@ -8,8 +8,8 @@ class Display extends Component {
     render() {
 
         return (
-            <div className="container bg-white">
-
+            <div className="container bg-transparent">
+                
                 <table className="container-fluid shadow-lg">
 
                         <tr className='table shadow-lg text-lg'>
@@ -18,9 +18,9 @@ class Display extends Component {
                             <td>Name</td>
                             <td>Category</td>
                         </tr>
-
+                        
                         {this.props.elements.map((element, index) =>
-
+                            
                             <tr className='tdNoPad shadow-lg' key={element._id}>
 
                                 <td>
@@ -30,17 +30,18 @@ class Display extends Component {
                                     <img className="img-thumbnail imgThumb" src={element.image} alt="" />
                                 </td>
                                
-                                <td className='my-3'>
+                                <td className=''>
                                     <Link  button to={`/profile/${element._id}`}><h1 >{element.name}</h1></Link>
                                 </td>
-                                    <h5>{element.category} </h5>
+                                    <h5>{element.category}</h5>
                                    
                             
                             </tr>
                         )}
                 </table>
+                </div>
 
-            </div>
+           
         );
     }
 }

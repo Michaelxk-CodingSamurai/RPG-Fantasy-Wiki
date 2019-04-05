@@ -51,7 +51,7 @@ class Creator extends Component {
                                 <option>select category</option>
                                 <option>Character</option>
                                 <option>Location</option>
-                                <option>Item</option>
+                                <option>item</option>
                                 <option>Ability</option>
                             </select>
                         </div>

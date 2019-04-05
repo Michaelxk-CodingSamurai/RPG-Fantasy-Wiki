@@ -21,7 +21,7 @@ class App extends Component {
   state = {
     elements: [],
     adventures: [],
-    profile: []
+    profile: [],
     adventureProfile: '',
   }
 

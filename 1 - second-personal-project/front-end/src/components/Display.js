@@ -8,11 +8,11 @@ class Display extends Component {
     render() {
 
         return (
-            <div className="container compendium">
+            <div className="container  trans">
                 
-                <table className="container-fluid">
+                <table className="container-fluid  compendium">
 
-                        <tr className='table shadow-lg text-lg'>
+                        <tr className='table shadow-lg'>
                             <td className="tableHeaders">#</td>
                             <td className="tableHeaders">Image</td>
                             <td className="tableHeaders">Name</td>

@@ -127,14 +127,9 @@ h4 {
 
 }
 
-.btn-dark {
 
-    padding-top: 5%;
-   
-
-}
-.table {
-    background-color: rgba(255, 255, 255, 0.65);
+.trans {
+    background-color: rgba(255, 255, 255, 0.60);
 }
 
 .element-check-box {
@@ -145,6 +140,7 @@ h4 {
 .filterByCat {
 
     font-size: 1.5rem;
+    margin-top: 1.5%;
     
 }
 
@@ -158,7 +154,22 @@ h4 {
 
 .compendium {
 
-background-color: rgba(255, 255, 255, 0.65);
+background-color: rgba(255, 255, 255, 0);
+
+}
+
+.updateBtn {
+
+    margin-top: 3%;
+
+}
+
+.adventure {
+
+    text-overflow: ellipsis;
+    
+    text-truncate: 
+
 
 }
 

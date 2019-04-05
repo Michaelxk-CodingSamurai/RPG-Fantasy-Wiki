@@ -43,7 +43,7 @@ class Creator extends Component {
             <div className="form-group">
 
                 <form onSubmit={(e) => this.elementCreate(e)}>
-                    <div className=" shadow-lg p-3 mb-5 bg-white rounded ">
+                    <div className=" shadow-lg p-3 mb-5 trans rounded ">
                         
                         <div className='dropdown'>
                             <select className="btn btn-secondary dropdown-toggle inputBox" value={this.state.category}

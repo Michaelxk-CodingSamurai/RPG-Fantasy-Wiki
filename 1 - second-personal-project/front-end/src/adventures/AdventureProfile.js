@@ -14,14 +14,6 @@ class AdventureProfile extends Component {
         this.props.getAdventureByID(this.props.match.params.id)
     }
 
-    // getAdventureByID = (id) => {
-    //     axios.get(`http://localhost:5000/adventures/${id}`)
-    //       .then(res => {
-    //         this.setState({
-    //           adventures: res.data
-    //         })
-    //       })
-    //   }
 
     render() {
         return (

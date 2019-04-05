@@ -2,10 +2,28 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 class AddElementToAdventure extends Component {
-    state = {}
+    state = {
+        adventures: []
+    }
+
+
+    addElementToAdventure = (newElement) => {
+        let newAdventure = [...this.state.adventures.elements, newElement]
+        this.setState({
+            adventures: newAdventure
+        })
+    }
+
+  
+    componentDidMount() {
+        this.props.getAdventureByID(this.props.match.params.id)
+    }
+
+
     render() {
         return (
             <div className="container bg-white">
+         
                 <table className="container-fluid shadow-lg">
 
                     <tr className='table shadow-lg text-lg'>
@@ -24,6 +42,10 @@ class AddElementToAdventure extends Component {
                             </td>
                             <td className=''>
                                 <img className="img-thumbnail imgThumb" src={element.image} alt="" />
+                                <input type="checkbox" className="element-check-box"
+                                    onClick ={() => {this.addElementToAdventure(element)}}/>
+
+
                             </td>
                             <td>
                                 <Link className="" button to={`/profile/${element._id}`}><h1 classname=''>{element.name}</h1></Link>
@@ -33,6 +55,8 @@ class AddElementToAdventure extends Component {
                             </td>
                         </tr>
                     )}
+
+                    <button><h3>Add These Elements</h3></button>
                 </table>
 
             </div>

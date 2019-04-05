@@ -1,27 +1,64 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import '../App.css'
 
 class UpdateForm extends Component {
     state = {
-        elements: [],
+        profile: {
+            name: '',
+            category: '',
+            image: '',
+            a: '',
+            b: '',
+            subcategory: [],
+        },
         editing: true,
+        
     }
 
     componentDidMount() {
-        this.getElementByID(this.props.match.params.id)
+        this.props.getElementByID(this.props.match.params.id)
+
+        this.setState({
+            profile: this.props.elements
+        })
+    }
+
+    submitUpdate = () => {
+        this.props.updateElementByID(this.props.match.params.id, this.state.profile)
+        this.setState({
+            editing: false
+        })
+    }
+
+    attUpdater = (key, value, index) => {
+        let newsubcats = [...this.state.profile.subcategory]
+
+        newsubcats[index][key] = value
+
+        this.setState({
+            ...this.state,
+            profile: {
+                ...this.state.profile,
+                subcategory: newsubcats
+            }
+        })
     }
 
     // updateFields = (e) => {
-    //     console.log(this.state.elements)
-    //     let newElements = [...this.state.elements]
-
-    //     console.log(newElements)
-    //     newElements.category: e
-    //     this.setState({ category: e })
+            
+    //     let newProfile = this.state.profile
+            
+    //     newProfile.name = e
+            
+    //     this.setState({
+    //         profile: newProfile
+    //     })
+        
     // }
 
     render() {
-        console.log(this.props.elements)
+        if (this.state.editing === false) { return <Redirect to={`/profile/${this.props.elements._id}`} /> }
         return (
             <div className="container">
                 <table className="table table-striped table-bordered">
@@ -35,28 +72,29 @@ class UpdateForm extends Component {
                     <tbody>
                         <tr>
                             <td>
-                                <h4><input onChange={(e) => this.updateFields(e)} type="text" value={this.props.elements.name} /></h4>
+                                <h4><input value={this.state.profile.name} onChange={(e) => this.setState({ profile: {...this.state.profile, name: e.target.value} })} type="text" /></h4>
 
                                 <div className='dropdown'>
-                                    <select className="btn btn-secondary dropdown-toggle two" value={this.state.category}
-                                        onChange={(e) => this.updateFields(e)}>
-                                        <option>select category</option>
+
+                                    <select className="btn btn-secondary dropdown-toggle two"
+                                        onChange={(e) => this.setState({ profile: {...this.state.profile, category: e.target.value}  })}>
+                                        <option>{ this.state.profile.category }</option>
                                         <option>Character</option>
                                         <option>Location</option>
                                         <option>Item</option>
                                         <option>Ability</option>
                                     </select>
-                                </div> 
+                                </div>
 
-                                
-                                <input onChange={(e) => this.updateFields(e)} type="text" value={this.props.elements.image} alt="" size="60" />
-                                <div className='updateBtn'><button >Update</button></div>
+
+                                <input onChange={(e) => this.setState({profile: {...this.state.profile, image: e.target.value} })} type="text" value={this.state.profile.image} alt="" size="60" />
+                                <div className='updateBtn' onClick = {this.submitUpdate}><button >Update</button></div>
                             </td>
-                            {this.state.elements.subcategory && this.state.elements.subcategory.map((object) => {
+                            {this.state.profile.subcategory && this.state.profile.subcategory.map((object, index) => {
                                 return (
-                                    <tr key={object.a}>
-                                        <td><input type="text" value={object.a} /> :</td>
-                                        <td><input type="text" value={object.b} /></td>
+                                    <tr key={index}>
+                                        <td><input type="text" value={object.a} onChange={(e) => this.attUpdater('a', e.target.value, index) }/> :</td>
+                                        <td><input type="text" value={object.b} onChange={(e) => this.attUpdater('b', e.target.value, index) }/></td>
                                     </tr>
                                 )
                             })}

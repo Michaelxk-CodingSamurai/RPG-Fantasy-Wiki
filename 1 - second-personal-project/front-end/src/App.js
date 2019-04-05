@@ -32,7 +32,7 @@ class App extends Component {
 
 
   deleteElementByID = (id) => {
-    
+
     axios.delete(`http://localhost:5000/elements/${id}`)
       .then(res => {
         this.getElements();
@@ -69,12 +69,22 @@ class App extends Component {
 
   getElementByID = (id) => {
     axios.get(`http://localhost:5000/elements/${id}`)
-        .then(res => {
-            this.setState({
-                profile: res.data
-            })
+      .then(res => {
+        this.setState({
+          profile: res.data
         })
-}
+      })
+  }
+
+  updateElementByID = (id, profile) => {
+    axios.put(`http://localhost:5000/elements/${id}`, profile)
+      .then(res => {
+        this.getElements();
+        this.setState({
+          profile: profile
+        })
+      })
+  }
 
   createElements = (element) => {
     axios.post('http://localhost:5000/elements', element)
@@ -109,7 +119,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <div id="addSpace">
+     
           <Switch>
             <Route exact path='/' render={() => <Display elements={this.state.elements} getElements={this.getElements} />} />
             <Route path='/creator' render={() => <Creator createElements={this.createElements} />} />
@@ -117,22 +127,21 @@ class App extends Component {
             <Route path='/locations' render={() => <Location elements={this.state.elements} />} />
             <Route path='/items' render={() => <Item elements={this.state.elements} />} />
             <Route path='/abilities' render={() => <Ability elements={this.state.elements} />} />
-
-           
-
-            <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} deleteElementByID={this.deleteElementByID} getElementByID={this.getElementByID} elements={this.state.profile}/>} />
-            <Route path='/profile/:id/edit' render={(renderProps) => <UpdateForm {...renderProps} getElementByID={this.getElementByID} elements={this.state.profile}/>} />
-
+            <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} deleteElementByID={this.deleteElementByID} getElementByID={this.getElementByID} elements={this.state.profile} />} />
+            <Route path='/profile/edit/:id' render={(renderProps) => <UpdateForm {...renderProps} updateElementByID={this.updateElementByID} getElementByID={this.getElementByID} elements={this.state.profile} />} />
             <Route exact path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
             <Route exact path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID} adventures={this.state.adventureProfile} />} />
-            
-            <Route exact path='/adventures/addelements/:id' render={(renderProps) => 
-                  <AddElementToAdventure {...renderProps} elements={this.state.elements} adventures={this.state.adventureProfile} getAdventureByID={this.getAdventureByID} 
-                    addElementToAdventure={this.addElementToAdventure} />}/>
 
-          
+            <Route exact path='/adventures/addelements/:id' render={(renderProps) =>
+              <AddElementToAdventure {...renderProps} elements={this.state.elements} adventures={this.state.adventureProfile} getAdventureByID={this.getAdventureByID}
+                addElementToAdventure={this.addElementToAdventure} />} />
+
+
+
+
+
           </Switch>
-        </div>
+   
       </div>
     );
   }

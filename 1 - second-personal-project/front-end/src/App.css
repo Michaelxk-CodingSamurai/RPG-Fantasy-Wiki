@@ -68,9 +68,13 @@ margin-left: 15px;
 }
 
 .imgThumb {
-    max-width: 39%;
-    max-height: 15%;
-    margin: 0%;
+  
+
+    max-width: 120px;
+    max-height: 200px;
+    margin-top: 10px;
+
+    
 }
 
 .line {
@@ -81,6 +85,7 @@ margin-left: 15px;
 .tdNoPad {
     padding: unset;
     margin: unset;
+   
 }
 .td {
     text-align: center;
@@ -105,12 +110,12 @@ h1 {
 
    margin: 5% 0;
    
-
 }
 
 .btn-dark {
 
     padding-top: 5%;
+   
 
 }
 .table {
@@ -120,4 +125,9 @@ h1 {
 .element-check-box {
     width:30px;
     height:30px;
+}
+
+.filterByCat {
+
+    font-size: 1.5rem;
 }

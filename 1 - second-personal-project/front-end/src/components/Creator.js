@@ -45,13 +45,13 @@ class Creator extends Component {
                 <form onSubmit={(e) => this.elementCreate(e)}>
                     <div className=" shadow-lg p-3 mb-5 bg-white rounded ">
                         
-                        <div classname='dropdown'>
+                        <div className='dropdown'>
                             <select className="btn btn-secondary dropdown-toggle inputBox" value={this.state.category}
                                 onChange={(e) => this.setState({ category: e.target.value })}>
                                 <option>select category</option>
                                 <option>Character</option>
                                 <option>Location</option>
-                                <option>Item</option>
+                                <option>item</option>
                                 <option>Ability</option>
                             </select>
                         </div>

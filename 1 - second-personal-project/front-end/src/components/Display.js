@@ -8,8 +8,8 @@ class Display extends Component {
     render() {
 
         return (
-            <div className="container bg-white">
-
+            <div className="container bg-transparent">
+                
                 <table className="container-fluid shadow-lg">
 
                         <tr className='table shadow-lg text-lg'>
@@ -18,9 +18,9 @@ class Display extends Component {
                             <td>Name</td>
                             <td>Category</td>
                         </tr>
-
+                        
                         {this.props.elements.map((element, index) =>
-
+                            
                             <tr className='tdNoPad shadow-lg' key={element._id}>
 
                                 <td>
@@ -31,7 +31,7 @@ class Display extends Component {
                                 </td>
                                
                                 <td className='my-3'>
-                                    <Link  button to={`/profile/${element._id}`}><h1 >{element.name}</h1></Link>
+                                    <Link  button to={`/profile/${element._id}`}><h1>{element.name}</h1></Link>
                                 </td>
                                     <h4 className='my-3'>{element.category} </h4>
                                    
@@ -39,8 +39,9 @@ class Display extends Component {
                             </tr>
                         )}
                 </table>
+                </div>
 
-            </div>
+           
         );
     }
 }

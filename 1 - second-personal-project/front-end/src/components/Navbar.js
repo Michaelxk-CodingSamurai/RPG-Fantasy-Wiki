@@ -3,12 +3,21 @@ import { Link, Redirect } from 'react-router-dom'
 
 class Navbar extends Component {
     state = {
-        filter: ''
+        filter: '',
+        search: ''
     }
 
     setFilter = (pagename) => {
         this.setState({
             filter: pagename
+        })
+    }
+
+    passSearch = () => {
+        this.props.updateSearch(this.state.search)
+
+        this.setState({
+            search: ''
         })
     }
 
@@ -61,8 +70,8 @@ class Navbar extends Component {
                     </ul>
 
                     <form className="form-inline my-2 my-lg-0">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <input className="form-control mr-sm-2" type="search" placeholder="..." onChange = {(e) => this.setState({search: e.target.value})}/>
+                        <button className="btn btn-sm btn-light" onClick = {this.passSearch}><Link to="/results"> <h4 className='mt-2 text-dark'>Search</h4> </Link></button>
                     </form>
                 </div>
             </nav>

@@ -20,23 +20,34 @@ class AdventureProfile extends Component {
             <div className="container trans">
                 {this.props.adventures &&
 
-                <table className="table table-striped table-bordered">
-                    <thead>
-                        <img src={this.props.adventures.image} className="img-adventure" alt=""/>
-                    </thead>
-                    <tbody>
-                        <h3>{this.props.adventures.name}</h3>
-                        <p>{this.props.adventures.genre}</p>
-                        <p>{this.props.adventures.description}</p>
-                        
-                    </tbody>
+                    <table className="table table-striped table-bordered">
+                        <thead>
+                            <img src={this.props.adventures.image} className="img-adventure" alt="" />
+                        </thead>
+                        <tbody>
+                            <h3>{this.props.adventures.name}</h3>
+                            <p>{this.props.adventures.genre}</p>
+                            <p>{this.props.adventures.description}</p>
+                        </tbody>
+
+                        {this.props.adventures.obstacles && this.props.adventures.obstacles.map((object) => {
+                            return (
+                                <div className="row" key={object.a}>
+                                    <div className="col-sm">
+                                    
+                                        <img src={object.b} className="img-thumbnail" alt=""/>
+                                    </div>
+                                    <div className="col-sm">
+                                        <p>{object.a}</p>
+                                    </div>
+                                </div>
+                            )
+                        })}
 
 
 
-
-                </table>
+                    </table>
                 }
-
             </div>
         );
     }

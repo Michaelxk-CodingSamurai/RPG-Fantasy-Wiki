@@ -19,7 +19,7 @@ class ShowAdventures extends Component {
                     </tr>
 
                     {this.props.adventures.map((adventure, index) =>
-                        <tr className="table shadow-lg">
+                        <tr className="table shadow-lg collapse-text">
                             <td>{index + 1}</td>
                             <td>
                                 <img src={adventure.image} className="img-thumbnail" alt="" />

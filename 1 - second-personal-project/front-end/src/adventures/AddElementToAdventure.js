@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 class AddElementToAdventure extends Component {
-    state = {
-        adventures: []
-    }
+    state = {}
 
 
     addElementToAdventure = (newElement) => {
-        let newAdventure = [...this.state.adventures.elements, newElement]
-        this.setState({
-            adventures: newAdventure
-        })
+        let adventureElement = [...this.props.elements]
+        
+        console.log(adventureElement)
+        // let newAdventure = [...adventureElement.elements, newElement]
+        // this.setState({
+        //     adventures: newAdventure
+        // })
     }
 
-  
+
     componentDidMount() {
         this.props.getAdventureByID(this.props.match.params.id)
     }
@@ -23,7 +24,8 @@ class AddElementToAdventure extends Component {
     render() {
         return (
             <div className="container bg-white">
-         
+                <h1>{this.props.adventures.name}</h1>
+
                 <table className="container-fluid shadow-lg">
 
                     <tr className='table shadow-lg text-lg'>
@@ -34,30 +36,31 @@ class AddElementToAdventure extends Component {
                     </tr>
 
                     {this.props.elements.map((element, index) =>
+                        <tbody key={element._id}>
+                            <tr className='tdNoPad shadow-lg' >
 
-                        <tr className='tdNoPad shadow-lg' key={element._id}>
-
-                            <td>
-                                <h4 className='text-center'>{index + 1}</h4>
-                            </td>
-                            <td className=''>
-                                <img className="img-thumbnail imgThumb" src={element.image} alt="" />
-                                <input type="checkbox" className="element-check-box"
-                                    onClick ={() => {this.addElementToAdventure(element)}}/>
+                                <td>
+                                    <h4 className='text-center'>{index + 1}</h4>
+                                </td>
+                                <td className=''>
+                                    <img className="img-thumbnail imgThumb" src={element.image} alt="" />
+                                    <input type="button"
+                                        onClick={() => { this.addElementToAdventure(element) }} value="submit" />
 
 
-                            </td>
-                            <td>
-                                <Link className="" button to={`/profile/${element._id}`}><h1 classname=''>{element.name}</h1></Link>
-                            </td>
-                            <td>
-                                <h5 className="">{element.category} </h5>
-                            </td>
-                        </tr>
+                                </td>
+                                <td>
+                                    <Link className="" button to={`/profile/${element._id}`}><h1 className=''>{element.name}</h1></Link>
+                                </td>
+                                <td>
+                                    <h5 className="">{element.category} </h5>
+                                </td>
+                            </tr>
+                        </tbody>
+
                     )}
-
-                    <button><h3>Add These Elements</h3></button>
                 </table>
+                <button><h3>Add These Elements</h3></button>
 
             </div>
 

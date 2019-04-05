@@ -28,7 +28,6 @@ class App extends Component {
   componentDidMount() {
     this.getElements()
     this.getAdventures()
-  
   }
 
 

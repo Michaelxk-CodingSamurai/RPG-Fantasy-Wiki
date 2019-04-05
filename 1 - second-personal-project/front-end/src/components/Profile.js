@@ -15,10 +15,8 @@ class Profile extends Component {
 
    
     render() {
-        console.log(this.props.elements)
-        console.log(this.props.elements._id)
         if (this.state.deleted === true) { return <Redirect to="/" /> }
-        if (this.state.editing === true) { return <Redirect to={`/profile/${this.props.elements._id}/edit `}/> }
+        if (this.state.editing === true) { return <Redirect to={`/profile/edit/${this.props.elements._id}`}/> }
 
             return (
                 <div className="container">

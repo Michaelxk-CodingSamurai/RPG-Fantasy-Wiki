@@ -17,7 +17,7 @@ const adventureSchema = new Schema({
         required: false,
         trim: true
     },
-    elements: {
+    obstacles: {
         type: Array,
         require: true,
         trim: true

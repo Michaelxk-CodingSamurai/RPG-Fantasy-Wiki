@@ -10,16 +10,16 @@ class ShowAdventures extends Component {
 
     render() {
         return (
-            <div className="container">
-                <table className="table trans container-fluid shadow-lg">
-                    <tr className="shadow-lg table-striped table-bordered">
+            <div className="trans container">
+                <table className="container-fluid ">
+                    <tr className="table shadow-lg">
                         <th>#</th>
                         <th>Name</th>
                         <th>Description</th>
                     </tr>
 
                     {this.props.adventures.map((adventure, index) =>
-                        <tr >
+                        <tr className="table shadow-lg collapse-text">
                             <td>{index + 1}</td>
                             <td>
                                 <img src={adventure.image} className="img-thumbnail" alt="" />

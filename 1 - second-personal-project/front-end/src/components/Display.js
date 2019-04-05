@@ -30,8 +30,8 @@ class Display extends Component {
                                     <img className="img-thumbnail imgThumb" src={element.image} alt="" />
                                 </td>
                                
-                                <td className=''>
-                                    <Link  button to={`/profile/${element._id}`}><h1 >{element.name}</h1></Link>
+                                <td className='my-3'>
+                                    <Link  button to={`/profile/${element._id}`}><h1>{element.name}</h1></Link>
                                 </td>
                                     <h4 className='my-3'>{element.category} </h4>
                                    

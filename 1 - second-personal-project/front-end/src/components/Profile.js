@@ -22,7 +22,7 @@ class Profile extends Component {
             <div className="container font-weight-bold">
                 <table className="table trans table-striped table-bordered">
                     <thead>
-                        <th className='h1'>{this.props.elements.name}<h5>{this.props.elements.category}</h5></th>
+                        <th title="Nigga you gay" className='h1'>{this.props.elements.name}<h5>{this.props.elements.category}</h5></th>
                             
                                     {/* <button className='float-right'
                                     onClick={() => this.setState({ editing: true })}>edit</button>

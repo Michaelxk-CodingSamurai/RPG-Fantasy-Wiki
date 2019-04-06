@@ -29,16 +29,16 @@ class AdventureProfile extends Component {
                             <p>{this.props.adventures.genre}</p>
                             <p>{this.props.adventures.description}</p>
                         </tbody>
-
-                        {this.props.adventures.obstacles && this.props.adventures.obstacles.map((object) => {
+                        <h3>Obstacles Encountered On Your Journey</h3>
+                        {this.props.adventures.obstacles && this.props.adventures.obstacles.map((object, i) => {
                             return (
                                 <div className="row" key={object.a}>
                                     <div className="col-sm">
                                     
-                                        <img src={object.b} className="img-thumbnail" alt=""/>
+                                      <img src={object.b} className="img-thumbnail" alt=""/>
                                     </div>
                                     <div className="col-sm">
-                                        <p>{object.a}</p>
+                                        <p>{i + 1}. {object.a}</p>
                                     </div>
                                 </div>
                             )

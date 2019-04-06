@@ -4,6 +4,7 @@ import './App.css';
 import { Switch, Route, } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Display from './components/Display'
+
 import Creator from './components/Creator';
 import Character from './components/categories/Character'
 import Location from './components/categories/Location'
@@ -11,10 +12,13 @@ import Item from './components/categories/Item'
 import Ability from './components/categories/Ability'
 import Profile from './components/Profile';
 import UpdateForm from './components/UpdateForm'
+
 import ShowAdventures from './adventures/ShowAdventures'
 import AdventureProfile from './adventures/AdventureProfile'
-import AddElementToAdventure from './adventures/AddElementToAdventure'
-import AdventureForm from './adventures/AdventureForm'
+// import AddElementToAdventure from './0bsolete Files/AddElementToAdventure'
+// import AdventureForm from './0bsolete Files/AdventureForm'
+import AdventureCreator from './adventures/AdventureCreator'
+
 import SearchResults from './components/SearchResults'
 
 
@@ -92,37 +96,45 @@ class App extends Component {
       })
   }
 
-  createElements = (element) => {
+  createElements = element => {
     axios.post('http://localhost:5000/elements', element)
       .then(res => {
         this.getElements()
       })
   }
 
-  addElementToAdventure = (id, index) => {
-    let adventureElement = [...this.state.elements];
-    let newElement = adventureElement.find(x => x._id === id);
-    let newAdventures = [...this.state.adventures];
-    let adventureIndex = newAdventures.findIndex(x => x._id === index);
-
-    newAdventures[adventureIndex].elements.push(newElement);
-    
-    this.setState({
-        adventures: newAdventures
-    })
+  createAdventures = adventure => {
+    axios.post('http://localhost:5000/adventures', adventure)
+      .then(res => {
+        this.getAdventures()
+      })
   }
 
-updateSearch = (e) => {
-  this.setState({
-    search: e
-  })
-}
+
+  // addElementToAdventure = (id, index) => {
+  //   let adventureElement = [...this.state.elements];
+  //   let newElement = adventureElement.find(x => x._id === id);
+  //   let newAdventures = [...this.state.adventures];
+  //   let adventureIndex = newAdventures.findIndex(x => x._id === index);
+
+  //   newAdventures[adventureIndex].elements.push(newElement);
+
+  //   this.setState({
+  //       adventures: newAdventures
+  //   })
+  // }
+
+  updateSearch = (e) => {
+    this.setState({
+      search: e
+    })
+  }
 
 
   render() {
     return (
       <div className="App">
-        <Navbar updateSearch={this.updateSearch}/>
+        <Navbar updateSearch={this.updateSearch} />
         <div id="addSpace">
           <Switch>
             <Route exact path='/' render={() => <Display elements={this.state.elements} getElements={this.getElements} />} />
@@ -136,12 +148,10 @@ updateSearch = (e) => {
             <Route path='/results' render={() => <SearchResults search={this.state.search} elements={this.state.elements} />} />
 
             <Route exact path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
-            <Route path='/adventures/create' render={() => <AdventureForm elements={this.state.elements} />} />
+            {/* <Route path='/adventures/create' render={() => <AdventureForm elements={this.state.elements} />} /> */}
             <Route exact path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID} adventures={this.state.adventureProfile} />} />
-            
-            <Route exact path='/adventures/addelements/:id' render={(renderProps) =>
-              <AddElementToAdventure {...renderProps} elements={this.state.elements} adventures={this.state.adventureProfile} getAdventureByID={this.getAdventureByID}
-                addElementToAdventure={this.addElementToAdventure} />} />
+            <Route exact path='/adventurecreator' render={() => <AdventureCreator createAdventures={this.createAdventures} />} />
+
           </Switch>
         </div>
       </div>

@@ -45,17 +45,6 @@ class UpdateForm extends Component {
         })
     }
 
-    // updateFields = (e) => {
-            
-    //     let newProfile = this.state.profile
-            
-    //     newProfile.name = e
-            
-    //     this.setState({
-    //         profile: newProfile
-    //     })
-        
-    // }
 
     render() {
         if (this.state.editing === false) { return <Redirect to={`/profile/${this.props.elements._id}`} /> }

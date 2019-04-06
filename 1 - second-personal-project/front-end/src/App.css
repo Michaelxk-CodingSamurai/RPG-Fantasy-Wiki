@@ -74,15 +74,6 @@ margin-left: 15px;
     padding-top: 6%;
 }
 
-.imgThumb {
-  
-
-    max-width: 120px;
-    max-height: 200px;
-    margin-top: 10px;
-    
-}
-
 .line {
     display: inline-block;
     table-layout: fixed;
@@ -167,9 +158,14 @@ background-color: rgba(255, 255, 255, 0);
 
     text-overflow: ellipsis;
     
-    text-truncate: 
-
+    /* text-truncate:  */
 
 }
 
-
+.imgthumbs {
+    max-width: 120px;
+    max-height: 200px;
+    margin-top: 10px;
+    box-shadow: 10px 10px 8px 0 rgba(0, 0, 0, 0.65);
+    border-radius: 4px;
+}

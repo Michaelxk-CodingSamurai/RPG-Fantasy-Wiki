@@ -27,11 +27,11 @@ class Display extends Component {
                                     <h4 className='text-center'>{index + 1}</h4>
                                 </td>
                                 <td className=''>
-                                    <img className="img-thumbnail imgThumb" src={element.image} alt="" />
+                                    <img className="imgthumbs" src={element.image} alt="" />
                                 </td>
                                
                                 <td className='my-3'>
-                                    <Link to={`/profile/${element._id}`}><h1>{element.name}</h1></Link>
+                                    <a className='text-dark' href={`/profile/${element._id}`}><h1>{element.name}</h1></a>
                                 </td>
                                     <h4 className='my-3'>{element.category} </h4>
                                    

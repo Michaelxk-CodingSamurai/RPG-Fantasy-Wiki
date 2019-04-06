@@ -11,6 +11,7 @@ class SearchResults extends Component {
             <Display elements={this.props.elements.filter((element) =>
                  element.name.toLowerCase().search(this.props.search.toLowerCase()) !== -1
                 )} />
+                
             </div>
           );
     }

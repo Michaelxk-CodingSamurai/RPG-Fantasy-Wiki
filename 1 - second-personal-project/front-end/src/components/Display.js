@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom"
 
 
 
@@ -31,7 +32,7 @@ class Display extends Component {
                                 </td>
                                
                                 <td className='my-3'>
-                                    <a className='text-dark' href={`/profile/${element._id}`}><h1>{element.name}</h1></a>
+                                   <a className='text-dark' href={`/profile/${element._id}`}><h1>{element.name}</h1></a>
                                 </td>
                                     <h4 className='my-3'>{element.category} </h4>
                                    

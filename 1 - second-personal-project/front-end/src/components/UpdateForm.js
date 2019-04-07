@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
-import '../App.css'
+
 
 class UpdateForm extends Component {
     state = {
@@ -49,7 +49,7 @@ class UpdateForm extends Component {
     render() {
         if (this.state.editing === false) { return <Redirect to={`/profile/${this.props.elements._id}`} /> }
         return (
-            <div className="container">
+            <div className="container trans">
                 <table className="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -61,7 +61,8 @@ class UpdateForm extends Component {
                     <tbody>
                         <tr>
                             <td>
-                                <h4><input value={this.state.profile.name} onChange={(e) => this.setState({ profile: {...this.state.profile, name: e.target.value} })} type="text" /></h4>
+                                <h4><input value={this.state.profile.name} onChange={(e) => 
+                                    this.setState({ profile: {...this.state.profile, name: e.target.value} })} type="text" /></h4>
 
                                 <div className='dropdown'>
 

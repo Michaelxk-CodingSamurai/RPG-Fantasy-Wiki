@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-
+import { Redirect } from 'react-router-dom'
 
 
 class AdventureProfile extends Component {
     state = {
         adventures: [],
         editing: false,
+        deleted: false,
     }
 
 
@@ -16,14 +17,24 @@ class AdventureProfile extends Component {
 
 
     render() {
+        if (this.state.deleted === true) { return <Redirect to="/adventures" /> }
+        if (this.state.editing === true) { return <Redirect to={`/adventures/edit/${this.props.adventures._id}`} /> 
+    }
         return (
             <div className="container trans">
                 {this.props.adventures &&
 
                     <table className="table table-striped table-bordered">
+                        <button onClick={() => this.setState({ editing: true })}>edit</button>
+                        <button title='Delete' onClick={() => {
+                            this.props.deleteAdventureByID(this.props.adventures._id);
+                            this.setState({ deleted: true })
+                        }}> X </button>
                         <thead>
                             <img src={this.props.adventures.image} className="img-adventure" alt="" />
+
                         </thead>
+
                         <tbody>
                             <h3>{this.props.adventures.name}</h3>
                             <p>{this.props.adventures.genre}</p>
@@ -34,8 +45,8 @@ class AdventureProfile extends Component {
                             return (
                                 <div className="row" key={object.a}>
                                     <div className="col-sm">
-                                    
-                                      <img src={object.b} className="img-thumbnail" alt=""/>
+
+                                        <img src={object.b} className="img-thumbnail" alt="" />
                                     </div>
                                     <div className="col-sm">
                                         <p>{i + 1}. {object.a}</p>

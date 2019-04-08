@@ -98,7 +98,7 @@ class Creator extends Component {
                                 {this.state.subcategory.map((obj) =>
 
                                     <ul>
-                                        <li className="listnostyle">{obj.a} : {obj.b} <div onClick={this.delete} className="btn btn-secondary">delete</div></li>
+                                        <li className="listnostyle">{obj.a} : {obj.b} <div onClick={this.delete} className="btn btn-secondary">x</div></li>
                                     </ul>
 
                                 )}

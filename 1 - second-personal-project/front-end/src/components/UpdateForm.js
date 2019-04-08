@@ -13,7 +13,7 @@ class UpdateForm extends Component {
             subcategory: [],
         },
         editing: true,
-        
+
     }
 
     componentDidMount() {
@@ -24,15 +24,15 @@ class UpdateForm extends Component {
         })
     }
 
-    add = () => {
-        let subcategory = [this.state.profile.subcategory]
-        let newCategory = [...subcategory, { a: this.state.a, b: this.state.b }]
-        this.setState({
-            profile: newCategory, 
-            a: '',
-            b: '', 
-        })
-    }
+    // add = () => {
+    //     let subcategory = [this.state.profile.subcategory]
+    //     let newCategory = [...subcategory, { a: this.state.a, b: this.state.b }]
+    //     this.setState({
+    //         profile: newCategory, 
+    //         a: '',
+    //         b: '', 
+    //     })
+    // }
 
 
 
@@ -73,14 +73,14 @@ class UpdateForm extends Component {
                     <tbody>
                         <tr>
                             <td>
-                                <h4><input value={this.state.profile.name} onChange={(e) => 
-                                    this.setState({ profile: {...this.state.profile, name: e.target.value} })} type="text" /></h4>
+                                <h4><input value={this.state.profile.name} onChange={(e) =>
+                                    this.setState({ profile: { ...this.state.profile, name: e.target.value } })} type="text" /></h4>
 
                                 <div className='dropdown'>
 
                                     <select className="btn btn-secondary dropdown-toggle two"
-                                        onChange={(e) => this.setState({ profile: {...this.state.profile, category: e.target.value}  })}>
-                                        <option>{ this.state.profile.category }</option>
+                                        onChange={(e) => this.setState({ profile: { ...this.state.profile, category: e.target.value } })}>
+                                        <option>{this.state.profile.category}</option>
                                         <option>Character</option>
                                         <option>Location</option>
                                         <option>Item</option>
@@ -89,17 +89,21 @@ class UpdateForm extends Component {
                                 </div>
 
 
-                                <input onChange={(e) => this.setState({profile: {...this.state.profile, image: e.target.value} })} type="text" value={this.state.profile.image} alt="" size="60" />
-                                <div className='updateBtn' onClick = {this.submitUpdate}><button className="btn btn-dark btn-lg">Update</button></div>
+                                <input onChange={(e) => this.setState({ profile: { ...this.state.profile, image: e.target.value } })} type="text" value={this.state.profile.image} alt="" size="60" />
+                                <div className='updateBtn' onClick={this.submitUpdate}><button className="btn btn-dark btn-lg">Update</button></div>
                             </td>
                             {this.state.profile.subcategory && this.state.profile.subcategory.map((object, index) => {
                                 return (
-                                    <tr key={index}>
-                                        <td><input type="text" value={object.a} onChange={(e) => this.attUpdater('a', e.target.value, index) }/> :</td>
-                                        <td><input type="text" value={object.b} onChange={(e) => this.attUpdater('b', e.target.value, index) }/></td>
-                                    </tr>
+                                    <div>
+                                        <tr key={index}>
+                                            <td><input type="text" value={object.a} onChange={(e) => this.attUpdater('a', e.target.value, index)} /> :</td>
+                                            <td><input type="text" value={object.b} onChange={(e) => this.attUpdater('b', e.target.value, index)} /></td>
+                                        </tr>
+                                        {/* <div id="addbtn" onClick={this.add} className="btn btn-secondary"> add</div> */}
+                                    </div>
                                 )
                             })}
+
                         </tr>
                     </tbody>
                 </table>

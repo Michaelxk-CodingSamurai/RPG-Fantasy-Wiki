@@ -25,16 +25,17 @@ class Creator extends Component {
     }
 
     delete = (index) => {
-        let newCategory =[...this.state.subcategory];
+        let newCategory = [...this.state.subcategory];
         newCategory.splice(index, 1)
         this.setState({
             subcategory: newCategory
         })
+        console.log(index)
     }
 
     elementCreate = (e) => {
         e.preventDefault();
-    
+
         if (this.state.name !== '' && this.state.category !== '') {
             this.props.createElements(this.state)
             this.setState({
@@ -47,7 +48,7 @@ class Creator extends Component {
                 subcategory: [],
                 done: true
             })
-        } else {alert("Name and Category are required.")}
+        } else { alert("Name and Category are required.") }
 
     }
 
@@ -95,18 +96,19 @@ class Creator extends Component {
                             <input value={this.state.b} onChange={(e) => this.setState({ b: e.target.value })} size="40" type="text" placeholder="" />
                             <div id="addbtn" onClick={this.add} className="btn btn-secondary"> add</div>
                             <div id="subcats">
-                                {this.state.subcategory.map((obj) =>
-
-                                    <ul>
-                                        <li className="listnostyle">{obj.a} : {obj.b} <div onClick={this.delete} className="btn btn-secondary">x</div></li>
-                                    </ul>
-
+                                {this.state.subcategory.map((obj, index) => {
+                                    return (
+                                        <ul>
+                                            <li className="listnostyle">{obj.a} : {obj.b}</li>
+                                        </ul>
+                                    )
+                                }
                                 )}
                             </div>
-
+                            {/* <button onClick={this.delete(index)} className="btn btn-secondary">x</button> */}
                         </div>
                         <div id="btn">
-                            
+
                             <button type='submit' className="alert btn btn-dark btn-lg">Make it Happen</button>
                         </div>
                     </div>

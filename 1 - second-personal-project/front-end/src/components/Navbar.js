@@ -67,6 +67,10 @@ class Navbar extends Component {
                         <li className="nav-item">
                             <Link to="/Adventures" className="nav-link" > <h4>Adventures</h4> </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/Adventurecreator" className="nav-link" > <h4>New Quest</h4> </Link>
+                        </li>
+                        
                     </ul>
 
                     <form className="form-inline my-2 my-lg-0">

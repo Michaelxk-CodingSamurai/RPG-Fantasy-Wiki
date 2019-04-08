@@ -56,7 +56,7 @@ class AddElementToAdventure extends Component {
                         </tr>
                     )}
 
-                    <button><h3>Add These Elements</h3></button>
+                    <button><h3>Add This Adventure</h3></button>
                 </table>
 
             </div>

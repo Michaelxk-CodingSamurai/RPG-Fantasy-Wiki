@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
+
 
 
 class Display extends Component {
@@ -8,12 +9,12 @@ class Display extends Component {
     render() {
 
         return (
-            <div className="container  trans">
+            <div className="container trans">
                 
                 <table className="container-fluid ">
 
-                        <tr className='table shadow-lg'>
-                            <td className="tableHeaders">#</td>
+                        <tr className=' shadow-lg'>
+                            <td className="tableHeaders py-2">#</td>
                             <td className="tableHeaders">Image</td>
                             <td className="tableHeaders">Name</td>
                             <td className="tableHeaders">Category</td>
@@ -31,11 +32,10 @@ class Display extends Component {
                                 </td>
                                
                                 <td className='my-3'>
-                                    <a className='text-dark' href={`/profile/${element._id}`}><h1>{element.name}</h1></a>
+                                   <a className='text-dark' href={`/profile/${element._id}`}><h1>{element.name}</h1></a>
                                 </td>
-                                    <h4 className='my-3'>{element.category} </h4>
-                                   
-                            
+                                    <h4 className='my-5'>{element.category} </h4>
+                                                               
                             </tr>
                         )}
                 </table>

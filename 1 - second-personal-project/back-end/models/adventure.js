@@ -7,7 +7,7 @@ const adventureSchema = new Schema({
         required: true,
         trim: true
     },
-    genre: {
+    genre: {    
         type: String,
         required: false,
         trim: true
@@ -19,7 +19,7 @@ const adventureSchema = new Schema({
     },
     obstacles: {
         type: Array,
-        require: true,
+        require: false,
         trim: true
     },
     description: {

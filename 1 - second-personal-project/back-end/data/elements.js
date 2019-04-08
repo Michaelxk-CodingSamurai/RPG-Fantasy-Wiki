@@ -3,6 +3,7 @@ module.exports.elements = [
         name: 'Elric the Pale',
         category: "character",
         image:"https://www.imperial-library.info/sites/default/files/imagecache/node-gallery-display/gallery_files/mw_DarkElf1024.jpg",
+        description:"",
         subcategory: [
             {a: 'race', b: 'Dark Elf'},
             {a: "class", b: 'spell-sword'},
@@ -17,6 +18,7 @@ module.exports.elements = [
         name: 'Roboute Guillman',
         category: "character",
         image:"https://coubsecure-s.akamaihd.net/get/b82/p/coub/simple/cw_timeline_pic/2f8a61548bf/2c0a3c834459bb9430576/big_1540022685_image.jpg",
+        description:"",
         subcategory: [
             {a: "race", b:'primarch'},
             {a: "class", b:'melee-fighter-god'},
@@ -31,6 +33,7 @@ module.exports.elements = [
         name: 'Geralt the White Wolf',
         category: "character",
         image:"https://cdn.vox-cdn.com/thumbor/Qf_b1xv1LrELjfID2tAp-tcB3r0=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/58923887/546d27725999ae0d48e3fb012fde485a7aafd066.jpg__0x1500_q85.0.0.jpg",
+        description:"",
         subcategory: [
             {a: "race", b:'mutant'},
             {a: "class", b:'witcher'},

@@ -12,7 +12,7 @@ class ShowAdventures extends Component {
         return (
             <div className="trans container">
                 <table className="container-fluid ">
-                    <tr className="table shadow-lg">
+                    <tr className="table shadow-lg h4">
                         <th>#</th>
                         <th>Name</th>
                         <th>Description</th>
@@ -21,10 +21,10 @@ class ShowAdventures extends Component {
                     {this.props.adventures.map((adventure, index) =>
                         <tr className="table shadow-lg collapse-text">
                             <td>{index + 1}</td>
-                            <td>
+                            <td className='h4 font-weight-bold'>
                                 <img src={adventure.image} className="img-thumbnail" alt="" />
                                 
-                                <Link className="" button to={`/adventures/${adventure._id}`}><h5>{adventure.name}</h5></Link>
+                                <Link className="text-dark" button to={`/adventures/${adventure._id}`}><h5>{adventure.name}</h5></Link>
      
                            
 

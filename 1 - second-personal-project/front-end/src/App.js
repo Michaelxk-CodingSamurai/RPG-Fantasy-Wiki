@@ -4,6 +4,7 @@ import './App.css';
 import { Switch, Route, } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Display from './components/Display'
+
 import Creator from './components/Creator';
 import Character from './components/categories/Character'
 import Location from './components/categories/Location'
@@ -11,10 +12,15 @@ import Item from './components/categories/Item'
 import Ability from './components/categories/Ability'
 import Profile from './components/Profile';
 import UpdateForm from './components/UpdateForm'
+
 import ShowAdventures from './adventures/ShowAdventures'
 import AdventureProfile from './adventures/AdventureProfile'
-import AddElementToAdventure from './adventures/AddElementToAdventure'
-import AdventureForm from './adventures/AdventureForm'
+// import AddElementToAdventure from './0bsolete Files/AddElementToAdventure'
+// import AdventureForm from './0bsolete Files/AdventureForm'
+import AdventureCreator from './adventures/AdventureCreator'
+import AdventureUpdate from './adventures/AdventureUpdate'
+
+
 import SearchResults from './components/SearchResults'
 
 
@@ -35,12 +41,14 @@ class App extends Component {
 
 
   deleteElementByID = (id) => {
-
     axios.delete(`http://localhost:5000/elements/${id}`)
+
       .then(res => {
         this.getElements();
       })
   }
+
+
 
 
   getElements = () => {
@@ -48,27 +56,6 @@ class App extends Component {
       .then(res => {
         this.setState({
           elements: res.data,
-        })
-      })
-  }
-
-  getAdventures = () => {
-    axios.get('http://localhost:5000/adventures')
-      .then(res => {
-        this.setState({
-          adventures: res.data,
-        })
-      })
-  }
-
-  getAdventureByID = (id) => {
-    console.log('hitting adventure by id')
-    axios.get(`http://localhost:5000/adventures/${id}`)
-      .then(res => {
-        console.log('hitting hello')
-
-        this.setState({
-          adventureProfile: res.data
         })
       })
   }
@@ -92,37 +79,87 @@ class App extends Component {
       })
   }
 
-  createElements = (element) => {
+  createElements = element => {
     axios.post('http://localhost:5000/elements', element)
       .then(res => {
         this.getElements()
       })
   }
 
-  addElementToAdventure = (id, index) => {
-    let adventureElement = [...this.state.elements];
-    let newElement = adventureElement.find(x => x._id === id);
-    let newAdventures = [...this.state.adventures];
-    let adventureIndex = newAdventures.findIndex(x => x._id === index);
-
-    newAdventures[adventureIndex].elements.push(newElement);
-    
-    this.setState({
-        adventures: newAdventures
-    })
+  createAdventures = adventure => {
+    axios.post('http://localhost:5000/adventures', adventure)
+      .then(res => {
+        this.getAdventures()
+      })
   }
 
-updateSearch = (e) => {
-  this.setState({
-    search: e
-  })
-}
+  
+  getAdventures = () => {
+    axios.get('http://localhost:5000/adventures')
+      .then(res => {
+        this.setState({
+          adventures: res.data,
+        })
+      })
+  }
+
+  getAdventureByID = (id) => {
+    console.log('hitting adventure by id')
+    axios.get(`http://localhost:5000/adventures/${id}`)
+      .then(res => {
+        console.log('hitting hello')
+
+        this.setState({
+          adventureProfile: res.data
+        })
+      })
+  }
+
+  deleteAdventureByID = id => {
+    axios.delete(`http://localhost:5000/adventures/${id}`)
+
+      .then(res => {
+        this.getAdventures()
+      })
+  }
+
+  updateAdventureByID = (id, adventureProfile) => {
+    axios.put(`http:///localhost:5000/adventures/${id}`, adventureProfile)
+    .then(res => {
+            this.getAdventures();
+            this.setState({
+              adventureProfile: adventureProfile
+            })
+          })
+  }
+
+
+
+
+  // addElementToAdventure = (id, index) => {
+  //   let adventureElement = [...this.state.elements];
+  //   let newElement = adventureElement.find(x => x._id === id);
+  //   let newAdventures = [...this.state.adventures];
+  //   let adventureIndex = newAdventures.findIndex(x => x._id === index);
+
+  //   newAdventures[adventureIndex].elements.push(newElement);
+
+  //   this.setState({
+  //       adventures: newAdventures
+  //   })
+  // }
+
+  updateSearch = (e) => {
+    this.setState({
+      search: e
+    })
+  }
 
 
   render() {
     return (
       <div className="App">
-        <Navbar updateSearch={this.updateSearch}/>
+        <Navbar updateSearch={this.updateSearch} />
         <div id="addSpace">
           <Switch>
             <Route exact path='/' render={() => <Display elements={this.state.elements} getElements={this.getElements} />} />
@@ -132,16 +169,14 @@ updateSearch = (e) => {
             <Route path='/items' render={() => <Item elements={this.state.elements} />} />
             <Route path='/abilities' render={() => <Ability elements={this.state.elements} />} />
             <Route exact path='/profile/:id' render={(renderProps) => <Profile {...renderProps} deleteElementByID={this.deleteElementByID} getElementByID={this.getElementByID} elements={this.state.profile} />} />
-            <Route path='/profile/edit/:id' render={(renderProps) => <UpdateForm {...renderProps} updateElementByID={this.updateElementByID} getElementByID={this.getElementByID} elements={this.state.profile} />} />
+            <Route exact path='/profile/edit/:id' render={(renderProps) => <UpdateForm {...renderProps} updateElementByID={this.updateElementByID} getElementByID={this.getElementByID} elements={this.state.profile} />} />
             <Route path='/results' render={() => <SearchResults search={this.state.search} elements={this.state.elements} />} />
 
             <Route exact path='/adventures' render={() => <ShowAdventures adventures={this.state.adventures} />} />
-            <Route path='/adventures/create' render={() => <AdventureForm elements={this.state.elements} />} />
-            <Route exact path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} getAdventureByID={this.getAdventureByID} adventures={this.state.adventureProfile} />} />
-            
-            <Route exact path='/adventures/addelements/:id' render={(renderProps) =>
-              <AddElementToAdventure {...renderProps} elements={this.state.elements} adventures={this.state.adventureProfile} getAdventureByID={this.getAdventureByID}
-                addElementToAdventure={this.addElementToAdventure} />} />
+            <Route exact path='/adventures/:id' render={(renderProps) => <AdventureProfile {...renderProps} deleteAdventureByID={this.deleteAdventureByID} getAdventureByID={this.getAdventureByID} adventures={this.state.adventureProfile} />} />
+            <Route path='/adventurecreator' render={() => <AdventureCreator createAdventures={this.createAdventures} />} />
+            <Route exact path='/adventures/edit/:id' render={(renderProps) => <AdventureUpdate {...renderProps} updateAdventureByID={this.updateAdventureByID} getAdventureByID={this.getAdventureByID} adventures={this.state.adventureProfile}/>} />
+
           </Switch>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
-import '../App.css'
+
 
 class UpdateForm extends Component {
     state = {
@@ -24,6 +24,18 @@ class UpdateForm extends Component {
         })
     }
 
+    add = () => {
+        let subcategory = [this.state.profile.subcategory]
+        let newCategory = [...subcategory, { a: this.state.a, b: this.state.b }]
+        this.setState({
+            profile: newCategory, 
+            a: '',
+            b: '', 
+        })
+    }
+
+
+
     submitUpdate = () => {
         this.props.updateElementByID(this.props.match.params.id, this.state.profile)
         this.setState({
@@ -45,22 +57,11 @@ class UpdateForm extends Component {
         })
     }
 
-    // updateFields = (e) => {
-            
-    //     let newProfile = this.state.profile
-            
-    //     newProfile.name = e
-            
-    //     this.setState({
-    //         profile: newProfile
-    //     })
-        
-    // }
 
     render() {
         if (this.state.editing === false) { return <Redirect to={`/profile/${this.props.elements._id}`} /> }
         return (
-            <div className="container">
+            <div className="container trans">
                 <table className="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -72,7 +73,8 @@ class UpdateForm extends Component {
                     <tbody>
                         <tr>
                             <td>
-                                <h4><input value={this.state.profile.name} onChange={(e) => this.setState({ profile: {...this.state.profile, name: e.target.value} })} type="text" /></h4>
+                                <h4><input value={this.state.profile.name} onChange={(e) => 
+                                    this.setState({ profile: {...this.state.profile, name: e.target.value} })} type="text" /></h4>
 
                                 <div className='dropdown'>
 

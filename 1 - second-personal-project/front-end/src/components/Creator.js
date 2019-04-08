@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 
 class Creator extends Component {
     state = {
@@ -8,8 +9,8 @@ class Creator extends Component {
         image: '',
         a: '',
         b: '',
-        subcategory: []
-
+        subcategory: [],
+        done: false
     }
 
 
@@ -23,30 +24,45 @@ class Creator extends Component {
         })
     }
 
-    elementCreate = (e) => {
-        e.preventDefault();
-
-        this.props.createElements(this.state)
+    delete = (index) => {
+        let newCategory =[...this.state.subcategory];
+        newCategory.splice(index, 1)
         this.setState({
-
-            name: '',
-            category: '',
-            image: '',
-            a: '',
-            b: '',
-            subcategory: []
+            subcategory: newCategory
         })
     }
 
+    elementCreate = (e) => {
+        e.preventDefault();
+    
+        if (this.state.name !== '' && this.state.category !== '') {
+            this.props.createElements(this.state)
+            this.setState({
+
+                name: '',
+                category: '',
+                image: '',
+                a: '',
+                b: '',
+                subcategory: [],
+                done: true
+            })
+        } else {alert("Name and Category are required.")}
+
+    }
+
     render() {
+        if (this.state.done === true) { return <Redirect to="/" /> }
         return (
+
             <div className="form-group">
 
                 <form onSubmit={(e) => this.elementCreate(e)}>
-                    <div className=" shadow-lg p-3 mb-5 trans rounded ">
-                        
-                        <div className='dropdown'>
-                            <select className="btn btn-secondary dropdown-toggle inputBox" value={this.state.category}
+                    <div className="shadow-lg p-3 mb-5 trans rounded ">
+
+                        <div className='dropdown inline m-auto inputBox d-flex flex-row'>
+
+                            <select className="btn btn-secondary dropdown-toggle m-2 ml-4" value={this.state.category}
                                 onChange={(e) => this.setState({ category: e.target.value })}>
                                 <option>select category</option>
                                 <option>Character</option>
@@ -54,12 +70,16 @@ class Creator extends Component {
                                 <option>item</option>
                                 <option>Ability</option>
                             </select>
+
+                            <h6 className='my-auto p-1'>Required*</h6>
+
                         </div>
 
 
-                        <div className="inputBox">
+                        <div className="inputBox inline d-flex flex-row">
                             <span>Name:</span>
                             <input className="one" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} size="40" type="text" placeholder="..." />
+                            <h6 className='my-auto p-1'>Required*</h6>
                         </div>
 
                         <div className="inputBox">
@@ -78,23 +98,19 @@ class Creator extends Component {
                                 {this.state.subcategory.map((obj) =>
 
                                     <ul>
-                                        <li className="listnostyle">{obj.a} : {obj.b}</li>
+                                        <li className="listnostyle">{obj.a} : {obj.b} <div onClick={this.delete} className="btn btn-secondary">delete</div></li>
                                     </ul>
 
                                 )}
                             </div>
 
                         </div>
-
-
                         <div id="btn">
-
-                            <button type='submit' className="btn btn-dark btn-lg">Make it Happen</button>
+                            
+                            <button type='submit' className="alert btn btn-dark btn-lg">Make it Happen</button>
                         </div>
                     </div>
-
                 </form>
-
             </div>
 
         );

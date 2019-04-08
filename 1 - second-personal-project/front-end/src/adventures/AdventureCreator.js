@@ -24,17 +24,19 @@ class AdventureCreator extends Component {
     adventureCreate = (e) => {
         e.preventDefault();
 
-        this.props.createAdventures(this.state)
-        this.setState({
-            
-            name: "",
-            genre: "",
-            image: "",
-            description: "",
-            a: "",
-            b: "",
-            obstacles: []
-        })
+        if (this.state.name !== '') {
+            this.props.createAdventures(this.state)
+            this.setState({
+                
+                name: "",
+                genre: "",
+                image: "",
+                description: "",
+                a: "",
+                b: "",
+                obstacles: []
+            })
+        } else {alert("Name is required.")}
     }
 
 
@@ -43,9 +45,10 @@ class AdventureCreator extends Component {
             <div className="form">
                 <form onSubmit={(e) => this.adventureCreate(e)}>
                     <div className="shadow-lg p-3 mb-5 trans rounded">
-                        <div className="inputBox">
+                        <div className="inputBox inline d-flex flex-row">
                             <span>Name:</span>
                             <input className="one" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} size="40" type="text" placeholder="..." />
+                            <h6 className='my-auto p-2'>Required*</h6>
                         </div>
                         <div className="inputBox">
                             <span>Genre:</span>

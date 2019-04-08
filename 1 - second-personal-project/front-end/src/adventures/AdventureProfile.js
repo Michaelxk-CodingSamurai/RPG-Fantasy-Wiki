@@ -24,23 +24,28 @@ class AdventureProfile extends Component {
             <div className="container trans">
                 {this.props.adventures &&
 
-                    <table className="table table-striped table-bordered">
-                        <button onClick={() => this.setState({ editing: true })}>edit</button>
-                        <button title='Delete' onClick={() => {
-                            this.props.deleteAdventureByID(this.props.adventures._id);
-                            this.setState({ deleted: true })
-                        }}> X </button>
+                    <table className="table">
+                        
+                        
                         <thead>
                             <img src={this.props.adventures.image} className="img-adventure" alt="" />
 
                         </thead>
 
-                        <tbody>
+                        <div className='p-4'>
+                            <div className="button-group  float-right">
+                                <button className='' onClick={() => this.setState({ editing: true })}>edit</button>
+                                <button title='Delete' onClick={() => {
+                                    this.props.deleteAdventureByID(this.props.adventures._id);
+                                    this.setState({ deleted: true })
+                                }}> X </button>
+                            </div>
                             <h3>{this.props.adventures.name}</h3>
                             <p>{this.props.adventures.genre}</p>
                             <p>{this.props.adventures.description}</p>
-                        </tbody>
-                        <h3>Obstacles Encountered On Your Journey</h3>
+                            <h3>Obstacles Encountered On Your Journey</h3>
+                        
+                        
                         {this.props.adventures.obstacles && this.props.adventures.obstacles.map((object, i) => {
                             return (
                                 <div className="row" key={object.a}>
@@ -49,12 +54,12 @@ class AdventureProfile extends Component {
                                         <img src={object.b} className="img-thumbnail" alt="" />
                                     </div>
                                     <div className="col-sm">
-                                        <p>{i + 1}. {object.a}</p>
+                                        <h5>{i + 1}. {object.a}</h5>
                                     </div>
                                 </div>
                             )
                         })}
-
+                    </div>
 
 
                     </table>

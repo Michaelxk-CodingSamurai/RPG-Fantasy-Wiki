@@ -24,6 +24,14 @@ class Creator extends Component {
         })
     }
 
+    delete = (index) => {
+        let newCategory =[...this.state.subcategory];
+        newCategory.splice(index, 1)
+        this.setState({
+            subcategory: newCategory
+        })
+    }
+
     elementCreate = (e) => {
         e.preventDefault();
     
@@ -90,7 +98,7 @@ class Creator extends Component {
                                 {this.state.subcategory.map((obj) =>
 
                                     <ul>
-                                        <li className="listnostyle">{obj.a} : {obj.b}</li>
+                                        <li className="listnostyle">{obj.a} : {obj.b} <div onClick={this.delete} className="btn btn-secondary">delete</div></li>
                                     </ul>
 
                                 )}

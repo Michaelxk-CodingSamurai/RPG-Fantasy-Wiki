@@ -24,6 +24,18 @@ class UpdateForm extends Component {
         })
     }
 
+    add = () => {
+        let subcategory = [this.state.profile.subcategory]
+        let newCategory = [...subcategory, { a: this.state.a, b: this.state.b }]
+        this.setState({
+            profile: newCategory, 
+            a: '',
+            b: '', 
+        })
+    }
+
+
+
     submitUpdate = () => {
         this.props.updateElementByID(this.props.match.params.id, this.state.profile)
         this.setState({

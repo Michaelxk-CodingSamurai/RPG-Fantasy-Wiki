@@ -25,7 +25,7 @@ class Display extends Component {
                             <tr className='tdNoPad shadow-lg' key={element._id}>
 
                                 <td>
-                                    <h4 className='text-center'>{index + 1}</h4>
+                                    <h4  className='text-center'>{index + 1}</h4>
                                 </td>
                                 <td className=''>
                                     <img className="imgthumbs" src={element.image} alt="" />

@@ -12,13 +12,22 @@ class AdventureCreator extends Component {
     }
 
     add = () => {
-        let newObstacle = [...this.state.obstacles, { a: this.state.a, b: this.state.b }]
+        let newObstacles = [...this.state.obstacles, { a: this.state.a, b: this.state.b }]
 
         this.setState({
-            obstacles: newObstacle,
+            obstacles: newObstacles,
             a: "",
             b: ""
         })
+    }
+
+    delete = (index) => {
+        let newObstacles = [...this.state.obstacles];
+        newObstacles.splice(index, 1)
+        this.setState({
+            obstacles: newObstacles
+        })
+        console.log(index)
     }
 
     adventureCreate = (e) => {
@@ -71,9 +80,9 @@ class AdventureCreator extends Component {
                             <textarea cols="70" rows="4" value={this.state.a} onChange={(e) => this.setState({ a: e.target.value })} size="40" type="text" placeholder="Write Something About this Obstacle" />
                             <div id="addbtn" onClick={this.add} className="btn btn-secondary"> add</div>
                             <div id="subcats">
-                                {this.state.obstacles.map((obj) =>
+                                {this.state.obstacles.map((obj, index) =>
                                     <ul>
-                                        <li className="listnostyle">{obj.a} : {obj.b}</li>
+                                        <li className="listnostyle">{obj.a} : {obj.b}<button onClick= { e => this.delete(index)}> X </button></li>
                                     </ul>
                                 )}
                             </div>

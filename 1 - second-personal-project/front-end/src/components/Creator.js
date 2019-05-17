@@ -99,7 +99,6 @@ class Creator extends Component {
                                 {this.state.subcategory.map((obj, index) => {
                                     return (
                                         <ul>
-                                            {/* <li key ={index} className="listnostyle">{obj.a} : {obj.b}  <button onClick={this.delete(index)} className="btn btn-secondary">x</button></li> */}
                                             <li key ={index} className="listnostyle">{obj.a} : {obj.b} <button onClick= { e => this.delete(index)}> X </button></li>
                                         </ul>
                                     )

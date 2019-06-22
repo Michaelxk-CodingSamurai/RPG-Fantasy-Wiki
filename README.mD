@@ -1,4 +1,4 @@
-#FantasyRPGWiki
+# FantasyRPGWiki
 
 ##About
 * Fantasy RPG Wiki is a website that allows people who play rpg games such as Dungeons and Dragons and GloomHaven to share their experiences with fellow players. Users of the website can post the characters and items they made and even share their adventure experiences. 

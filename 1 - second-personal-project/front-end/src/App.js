@@ -15,8 +15,6 @@ import UpdateForm from './components/UpdateForm'
 
 import ShowAdventures from './adventures/ShowAdventures'
 import AdventureProfile from './adventures/AdventureProfile'
-// import AddElementToAdventure from './0bsolete Files/AddElementToAdventure'
-// import AdventureForm from './0bsolete Files/AdventureForm'
 import AdventureCreator from './adventures/AdventureCreator'
 import AdventureUpdate from './adventures/AdventureUpdate'
 
@@ -133,21 +131,6 @@ class App extends Component {
           })
   }
 
-
-
-
-  // addElementToAdventure = (id, index) => {
-  //   let adventureElement = [...this.state.elements];
-  //   let newElement = adventureElement.find(x => x._id === id);
-  //   let newAdventures = [...this.state.adventures];
-  //   let adventureIndex = newAdventures.findIndex(x => x._id === index);
-
-  //   newAdventures[adventureIndex].elements.push(newElement);
-
-  //   this.setState({
-  //       adventures: newAdventures
-  //   })
-  // }
 
   updateSearch = (e) => {
     this.setState({

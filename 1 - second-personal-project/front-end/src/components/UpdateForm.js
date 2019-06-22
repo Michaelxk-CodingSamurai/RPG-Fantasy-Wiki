@@ -13,7 +13,6 @@ class UpdateForm extends Component {
             subcategory: [],
         },
         editing: true,
-
     }
 
     componentDidMount() {
@@ -24,15 +23,15 @@ class UpdateForm extends Component {
         })
     }
 
-    // add = () => {
-    //     let subcategory = [this.state.profile.subcategory]
-    //     let newCategory = [...subcategory, { a: this.state.a, b: this.state.b }]
-    //     this.setState({
-    //         profile: newCategory, 
-    //         a: '',
-    //         b: '', 
-    //     })
-    // }
+    add = () => {
+        let subcategory = [this.state.profile.subcategory]
+        let newCategory = [...subcategory, { a: this.state.profile.a, b: this.state.profile.b }]
+        this.setState({
+            profile: newCategory, 
+            a: '',
+            b: '', 
+        })
+    }
 
 
 
@@ -92,6 +91,7 @@ class UpdateForm extends Component {
                                 <input onChange={(e) => this.setState({ profile: { ...this.state.profile, image: e.target.value } })} type="text" value={this.state.profile.image} alt="" size="60" />
                                 <div className='updateBtn' onClick={this.submitUpdate}><button className="btn btn-dark btn-lg">Update</button></div>
                             </td>
+                            {/* <div id="addbtn" onClick={this.add} className="btn btn-secondary"> add</div> */}
                             {this.state.profile.subcategory && this.state.profile.subcategory.map((object, index) => {
                                 return (
                                     <div>

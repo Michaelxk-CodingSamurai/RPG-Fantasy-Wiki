@@ -23,3 +23,30 @@ Note: Make sure to allow cross control origin sharing
 
 ##ServerPage
 ![ServerPage]( https://github.com/Michaelxk-CodingSamurai/RPG-Fantasy-Wiki/blob/master/1%20-%20second-personal-project/Server-js.png?raw=true"Title")
+
+##Controllers
+![Controllers](https://github.com/Michaelxk-CodingSamurai/RPG-Fantasy-Wiki/blob/master/1%20-%20second-personal-project/Controllers.png?raw=true"Title")
+
+##Models
+![Models](https://github.com/Michaelxk-CodingSamurai/RPG-Fantasy-Wiki/blob/master/1%20-%20second-personal-project/Models.png?raw=true"Title")
+
+##Routes
+![Routes](https://github.com/Michaelxk-CodingSamurai/RPG-Fantasy-Wiki/blob/master/1%20-%20second-personal-project/Routes.png?raw=true"Title")
+
+##AxiosCall
+![AxiosCall](https://github.com/Michaelxk-CodingSamurai/RPG-Fantasy-Wiki/blob/master/1%20-%20second-personal-project/Axios-Call.png?raw=true"Title")
+
+##MainPage
+![MainPage](https://github.com/Michaelxk-CodingSamurai/RPG-Fantasy-Wiki/blob/master/1%20-%20second-personal-project/Main-Page.png?raw=true"Title")
+
+##Create-Content
+![Create-Content](https://github.com/Michaelxk-CodingSamurai/RPG-Fantasy-Wiki/blob/master/1%20-%20second-personal-project/Create-Content.png?raw=true"Title")
+
+##Adventures-Page
+![Adventures-Page](https://github.com/Michaelxk-CodingSamurai/RPG-Fantasy-Wiki/blob/master/1%20-%20second-personal-project/Adventures-Page.png?raw=true"Title")
+
+##Adventure-Profile-Individual
+![Adventure-Profile-Individual](https://github.com/Michaelxk-CodingSamurai/RPG-Fantasy-Wiki/blob/master/1%20-%20second-personal-project/Adventure-Profile-Individual.png?raw=true"Title")
+
+##Edit-Adventure
+![Edit-Adventure](https://github.com/Michaelxk-CodingSamurai/RPG-Fantasy-Wiki/blob/master/1%20-%20second-personal-project/Edit-Adventure.png?raw=true"Title")
